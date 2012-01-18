@@ -35,10 +35,11 @@ $messages['ast'] = array(
 );
 
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+ * @author EugeneZelenko
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
-	'helpcommons-desc' => 'Запытвае дапаможныя старонкі з дапаможнай вікі і ўключае іх у іншыя праекты',
+	'helpcommons-desc' => 'Запытвае старонкі дапамогі з адпаведнай вікі і ўключае іх у іншыя праекты',
 );
 
 /** Breton (Brezhoneg)
@@ -49,10 +50,11 @@ $messages['br'] = array(
 );
 
 /** German (Deutsch)
+ * @author Kghbln
  * @author SVG
  */
 $messages['de'] = array(
-	'helpcommons-desc' => 'Nimmt den Hilfe-Namensraum aus einem Hilfe Wiki und bindet ihn in andere Wikis der Wiki-Familie ein',
+	'helpcommons-desc' => 'Ermöglicht das Einbinden des Namensraums Hilfe aus einem Wiki in alle anderen Wikis der Wiki-Familie',
 );
 
 /** Lower Sorbian (Dolnoserbski)
