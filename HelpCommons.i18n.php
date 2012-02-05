@@ -17,7 +17,11 @@ $messages = array();
  * @author SVG
  */
 $messages['en'] = array(
-   'helpcommons-desc' => 'Fetches help pages from a help wiki and includes them into other wikis on the wiki family',
+	'helpcommons-desc' => 'Fetches help pages from an external or local help wiki and includes them into this wiki',
+	'helpcommons-create' => 'Create on Help Wiki',
+	'helpcommons-edit' => 'Edit on Help Wiki',
+	'helpcommons-discussion' => 'Discuss this on Help Wiki',
+	'helpcommons-info' => 'This content is fetched from $1. See $2.',
 );
 
 /** Message documentation (Message documentation)
@@ -25,6 +29,10 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'helpcommons-desc' => '{{desc}}',
+	'helpcommons-create' => 'Second create tab connected to Help Wiki',
+	'helpcommons-edit' => 'Second edit tab connected to Help Wiki',
+	'helpcommons-discussion' => 'Second discussion tab connected to Help Wiki',
+	'helpcommons-info' => "Short description about source at the left side in top in the help page's infobox",
 );
 
 /** Asturian (Asturianu)
@@ -54,7 +62,11 @@ $messages['br'] = array(
  * @author SVG
  */
 $messages['de'] = array(
-	'helpcommons-desc' => 'Ermöglicht das Einbinden des Namensraums Hilfe aus einem Wiki in alle anderen Wikis der Wiki-Familie',
+	'helpcommons-desc' => 'Ermöglicht das Einbinden des Hilfe-Namensraums aus einem externen oder lokalen Hilfe Wiki in dieses Wiki',
+	'helpcommons-create' => 'Erstellen im Hilfe Wiki',
+	'helpcommons-edit' => 'Bearbeiten im Hilfe Wiki',
+	'helpcommons-discussion' => 'Diskussion im Hilfe Wiki',
+	'helpcommons-info' => 'Dieser Inhalt ist bezogen aus $1. Siehe $2.',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -127,4 +139,3 @@ $messages['pms'] = array(
 $messages['ru'] = array(
 	'helpcommons-desc' => 'Извлекает страницы справки из справочной вики и добавляет их в другие вики',
 );
-
