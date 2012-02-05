@@ -139,3 +139,4 @@ $messages['pms'] = array(
 $messages['ru'] = array(
 	'helpcommons-desc' => 'Извлекает страницы справки из справочной вики и добавляет их в другие вики',
 );
+
