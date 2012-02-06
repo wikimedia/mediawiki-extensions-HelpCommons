@@ -17,7 +17,7 @@ $messages = array();
  * @author SVG
  */
 $messages['en'] = array(
-	'helpcommons-desc' => 'Fetches help pages from an external or local help wiki and includes them into this wiki',
+	'helpcommons-desc' => 'Fetches help pages from an external help wiki and includes them into this wiki',
 	'helpcommons-create' => 'Create on Help Wiki',
 	'helpcommons-edit' => 'Edit on Help Wiki',
 	'helpcommons-discussion' => 'Discuss this on Help Wiki',
