@@ -62,11 +62,11 @@ $messages['br'] = array(
  * @author SVG
  */
 $messages['de'] = array(
-	'helpcommons-desc' => 'Ermöglicht das Einbinden des Hilfe-Namensraums aus einem externen oder lokalen Hilfe Wiki in dieses Wiki',
-	'helpcommons-create' => 'Erstellen im Hilfe Wiki',
-	'helpcommons-edit' => 'Bearbeiten im Hilfe Wiki',
-	'helpcommons-discussion' => 'Diskussion im Hilfe Wiki',
-	'helpcommons-info' => 'Dieser Inhalt ist bezogen aus $1. Siehe $2.',
+	'helpcommons-desc' => 'Ermöglicht das Einbinden des Hilfe-Namensraums aus einem externen Wiki in dieses Wiki',
+	'helpcommons-create' => 'Erstellen im Hilfe-Wiki',
+	'helpcommons-edit' => 'Bearbeiten im Hilfe-Wiki',
+	'helpcommons-discussion' => 'Diskussion im Hilfe-Wiki',
+	'helpcommons-info' => 'Dieser Inhalt wird aus $1 eingebunden. Siehe $2.',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -87,21 +87,33 @@ $messages['eo'] = array(
  * @author Gomoko
  */
 $messages['fr'] = array(
-	'helpcommons-desc' => "Récupérer les pages d'aide d'un wiki d'aide et les inclure dans d'autres wikis de la famille de wikis",
+	'helpcommons-desc' => "Récupérer les pages d'aide d'un wiki d'aide externe ou local et les inclure dans ce wiki",
+	'helpcommons-create' => "Créer sur le wiki d'aide",
+	'helpcommons-edit' => "Modifier sur le wiki d'aide",
+	'helpcommons-discussion' => "En discuter sur le wiki d'aide",
+	'helpcommons-info' => 'Ce contenu est extrait de $1. Voyez $2.',
 );
 
 /** Galician (Galego)
  * @author Toliño
  */
 $messages['gl'] = array(
-	'helpcommons-desc' => 'Extrae o espazo de nomes de axuda dun wiki auxiliar e inclúe os contidos noutros wikis da familia',
+	'helpcommons-desc' => 'Extrae as páxinas de axuda dun wiki auxiliar, externo ou local, e inclúe os contidos neste wiki',
+	'helpcommons-create' => 'Crear no wiki auxiliar',
+	'helpcommons-edit' => 'Editar no wiki auxiliar',
+	'helpcommons-discussion' => 'Debater no wiki auxiliar',
+	'helpcommons-info' => 'Este contido extraeuse de $1. Véxase $2.',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'helpcommons-desc' => 'Bjerje mjenowy rum Pomoc z wikija pomocy a zapřijima jón do druhich wikijow wikiswójby',
+	'helpcommons-desc' => 'Bjerje strony pomocy z eksterneho abo lokalneho pomocneho wikija a zapřijima je do tutoho wikija',
+	'helpcommons-create' => 'Pomocny wiki wutworić',
+	'helpcommons-edit' => 'Na pomocnym wikiju wobdźěłać',
+	'helpcommons-discussion' => 'To na pomocnym wikiju diskutować',
+	'helpcommons-info' => 'Tutón wobsah so z $1 zapřijima. Hleju $2.',
 );
 
 /** Interlingua (Interlingua)
@@ -113,6 +125,7 @@ $messages['ia'] = array(
 
 /** Macedonian (Македонски)
  * @author Bjankuloski06
+ * @author SVG
  */
 $messages['mk'] = array(
 	'helpcommons-desc' => 'Го презема страниците од именскиот простор за помош од помошно вики и ги вклучува во други викија од семејството',
