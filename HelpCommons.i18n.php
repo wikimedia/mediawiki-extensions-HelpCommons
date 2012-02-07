@@ -120,7 +120,11 @@ $messages['hsb'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'helpcommons-desc' => 'Obtene le paginas de adjuta ab un wiki de adjuta e los include in altere wikis in le familia de wikis',
+	'helpcommons-desc' => 'Obtene paginas de adjuta ab un wiki de adjuta externe e los include in iste wiki',
+	'helpcommons-create' => 'Crear in wiki de adjuta',
+	'helpcommons-edit' => 'Modificar in wiki de adjuta',
+	'helpcommons-discussion' => 'Discuter isto in wiki de adjuta',
+	'helpcommons-info' => 'Iste contento es obtenite ab $1. Vide $2.',
 );
 
 /** Macedonian (Македонски)
