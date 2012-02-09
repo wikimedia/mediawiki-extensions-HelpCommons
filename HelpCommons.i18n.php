@@ -127,6 +127,14 @@ $messages['ia'] = array(
 	'helpcommons-info' => 'Iste contento es obtenite ab $1. Vide $2.',
 );
 
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'helpcommons-create' => 'Op Help-Wiki uleeën',
+	'helpcommons-edit' => 'Op Help-Wiki änneren',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  * @author SVG
