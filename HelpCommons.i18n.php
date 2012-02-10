@@ -148,10 +148,15 @@ $messages['mk'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author SPQRobin
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'helpcommons-desc' => "Maakt de Help-naamruimte uit een hulpwiki beschikbaar in andere wiki's van een wikifamilie",
+	'helpcommons-desc' => "Maakt hulppagina's uit een externe hulpwiki beschikbaar in deze wiki",
+	'helpcommons-create' => 'Aanmaken op Hulpwiki',
+	'helpcommons-edit' => 'Bewerken op Hulpwiki',
+	'helpcommons-discussion' => 'Bespreek dit op Hulpwiki',
+	'helpcommons-info' => 'Deze inhoud wordt toegevoegd vanuit $1. Zie $2.',
 );
 
 /** Piedmontese (Piemontèis)
