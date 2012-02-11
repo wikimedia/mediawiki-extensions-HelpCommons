@@ -47,7 +47,11 @@ $messages['ast'] = array(
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
-	'helpcommons-desc' => 'Запытвае старонкі дапамогі з адпаведнай вікі і ўключае іх у іншыя праекты',
+	'helpcommons-desc' => 'Запытвае старонкі дапамогі з вонкавай дапаможнай вікі і ўключае іх у гэты праект',
+	'helpcommons-create' => 'Стварыць у дапаможнай вікі',
+	'helpcommons-edit' => 'Рэдагаваць у дапаможнай вікі',
+	'helpcommons-discussion' => 'Абмеркаваць на дапаможнай вікі',
+	'helpcommons-info' => 'Гэты зьмест быў запытаны з $1. Глядзіце $2.',
 );
 
 /** Breton (Brezhoneg)
@@ -73,7 +77,11 @@ $messages['de'] = array(
  * @author Michawiki
  */
 $messages['dsb'] = array(
-	'helpcommons-desc' => 'Bjerjo mjenjowy rum Pomoc z wikija pomocy a zapśiimujo jen do drugich wikijow wikiswójźby',
+	'helpcommons-desc' => 'Bjerjo boki pomocy z eksternego abo lokalnego pomocnego wikija a zapśimujo je do toś togo wikija',
+	'helpcommons-create' => 'Na wikiju pomocy napóraś',
+	'helpcommons-edit' => 'Na wikiju pomocy wobźěłaś',
+	'helpcommons-discussion' => 'To na wikiju pomocy diskutěrowaś',
+	'helpcommons-info' => 'Toś to wopśimjeśe zapśimujo se z  $1. Glědaj $2.',
 );
 
 /** Esperanto (Esperanto)
@@ -110,10 +118,10 @@ $messages['gl'] = array(
  */
 $messages['hsb'] = array(
 	'helpcommons-desc' => 'Bjerje strony pomocy z eksterneho abo lokalneho pomocneho wikija a zapřijima je do tutoho wikija',
-	'helpcommons-create' => 'Pomocny wiki wutworić',
-	'helpcommons-edit' => 'Na pomocnym wikiju wobdźěłać',
-	'helpcommons-discussion' => 'To na pomocnym wikiju diskutować',
-	'helpcommons-info' => 'Tutón wobsah so z $1 zapřijima. Hleju $2.',
+	'helpcommons-create' => 'Na wikiju pomocy wutworić',
+	'helpcommons-edit' => 'Na wikiju pomocy wobdźěłać',
+	'helpcommons-discussion' => 'To na wikiju pomocy diskutować',
+	'helpcommons-info' => 'Tutón wobsah so z $1 zapřijima. Hlej $2.',
 );
 
 /** Interlingua (Interlingua)
