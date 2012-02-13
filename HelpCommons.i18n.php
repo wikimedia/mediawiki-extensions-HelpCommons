@@ -39,7 +39,11 @@ $messages['qqq'] = array(
  * @author Xuacu
  */
 $messages['ast'] = array(
-	'helpcommons-desc' => "Estrái páxines d'ayuda d'una wiki d'ayuda y les inclúi n'otres wikis de la familia wiki",
+	'helpcommons-desc' => "Estrái páxines d'ayuda d'una wiki d'ayuda esterna y les inclúi nesta wiki",
+	'helpcommons-create' => "Crear na wiki d'ayuda",
+	'helpcommons-edit' => "Editar na wiki d'ayuda",
+	'helpcommons-discussion' => "Aldericar na wiki d'ayuda",
+	'helpcommons-info' => 'Esti conteníu ta sacáu de $1. Ver $2.',
 );
 
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
@@ -163,7 +167,7 @@ $messages['nl'] = array(
 	'helpcommons-desc' => "Maakt hulppagina's uit een externe hulpwiki beschikbaar in deze wiki",
 	'helpcommons-create' => 'Aanmaken op Hulpwiki',
 	'helpcommons-edit' => 'Bewerken op Hulpwiki',
-	'helpcommons-discussion' => 'Bespreek dit op Hulpwiki',
+	'helpcommons-discussion' => 'Bespreken op Hulpwiki',
 	'helpcommons-info' => 'Deze inhoud wordt toegevoegd vanuit $1. Zie $2.',
 );
 
