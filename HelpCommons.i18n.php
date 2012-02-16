@@ -48,13 +48,14 @@ $messages['ast'] = array(
 
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
+ * @author Jim-by
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
 	'helpcommons-desc' => 'Запытвае старонкі дапамогі з вонкавай дапаможнай вікі і ўключае іх у гэты праект',
 	'helpcommons-create' => 'Стварыць у дапаможнай вікі',
 	'helpcommons-edit' => 'Рэдагаваць у дапаможнай вікі',
-	'helpcommons-discussion' => 'Абмеркаваць на дапаможнай вікі',
+	'helpcommons-discussion' => 'Абмеркаваць гэта на дапаможнай вікі',
 	'helpcommons-info' => 'Гэты зьмест быў запытаны з $1. Глядзіце $2.',
 );
 
