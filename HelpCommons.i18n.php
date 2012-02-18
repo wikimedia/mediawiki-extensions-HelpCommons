@@ -118,6 +118,17 @@ $messages['gl'] = array(
 	'helpcommons-info' => 'Este contido extraeuse de $1. Véxase $2.',
 );
 
+/** Hebrew (עברית)
+ * @author Amire80
+ */
+$messages['he'] = array(
+	'helpcommons-desc' => 'אחזור דפי עזרה מוויקי חיצוני של דפי עזרה והכללתם בוויקי הנוכחי',
+	'helpcommons-create' => 'ליצור בוויקי של דפי עזרה',
+	'helpcommons-edit' => 'לערוך בוויקי של דפי עזרה',
+	'helpcommons-discussion' => 'לדון על זה בוויקי של דפי עזרה',
+	'helpcommons-info' => "התוכן הזה אוחזר מ{{GRAMMAR:תחילית|$1}}. ר' $2.",
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
