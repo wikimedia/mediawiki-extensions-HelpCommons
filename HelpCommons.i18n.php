@@ -183,6 +183,17 @@ $messages['nl'] = array(
 	'helpcommons-info' => 'Deze inhoud wordt toegevoegd vanuit $1. Zie $2.',
 );
 
+/** Polish (Polski)
+ * @author BeginaFelicysym
+ */
+$messages['pl'] = array(
+	'helpcommons-desc' => 'Pobiera strony pomocy z zewnętrznej wiki pomocy i dodaje je do tej wiki',
+	'helpcommons-create' => 'Utwórz na Wiki Pomocy',
+	'helpcommons-edit' => 'Edycja na Wiki Pomocy',
+	'helpcommons-discussion' => 'Omów to na Wiki Pomocy',
+	'helpcommons-info' => 'Ta zawartość została pobrana z  $1 . Patrz $2.',
+);
+
 /** Piedmontese (Piemontèis)
  * @author Borichèt
  * @author Dragonòt
