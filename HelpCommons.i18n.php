@@ -96,6 +96,17 @@ $messages['eo'] = array(
 	'helpcommons-desc' => 'Alportas helpopaĝojn el helpa vikio kaj inkluzivigas ĝin en aliajn vikiojn de la vikia familio',
 );
 
+/** Spanish (Español)
+ * @author Armando-Martin
+ */
+$messages['es'] = array(
+	'helpcommons-desc' => 'Recupera páginas de ayuda de un wiki de ayuda externa y las incluye en este wiki',
+	'helpcommons-create' => 'Crear en el Wiki de ayuda',
+	'helpcommons-edit' => 'Editar en el wiki de ayuda',
+	'helpcommons-discussion' => 'Discutir esto en el wiki de ayuda',
+	'helpcommons-info' => 'Este contenido se extrajo desde  $1 . Véase $2.',
+);
+
 /** French (Français)
  * @author Gomoko
  */
