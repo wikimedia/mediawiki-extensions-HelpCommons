@@ -225,3 +225,12 @@ $messages['ru'] = array(
 	'helpcommons-info' => 'Это содержимое собрано из $1. Обратитесь к $2.',
 );
 
+/** Tamil (தமிழ்)
+ * @author Karthi.dr
+ */
+$messages['ta'] = array(
+	'helpcommons-edit' => 'உதவி விக்கியில் தொகுக்க',
+	'helpcommons-discussion' => 'உதவி விக்கியில் இதை விவாதிக்க',
+	'helpcommons-info' => 'இந்த உள்ளடக்கம்  $1 இல் இருந்து பெறப்பட்டது.  $2 ஐப் பார்க்கவும்.',
+);
+
