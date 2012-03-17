@@ -97,7 +97,7 @@ function fnHelpCommonsLoad( OutputPage &$helppage, Skin &$skin ) {
 						}
 
 						// check if requested page does exist
-						$apiResponse = file_get_contents( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $dbkey );
+						$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $dbkey );
 						$apiData = unserialize( $apiResponse );
 
 						if ( !$apiResponse ) {
