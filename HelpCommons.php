@@ -120,7 +120,7 @@ function fnHelpCommonsLoad( OutputPage &$helppage, Skin &$skin ) {
 									$wgOut->clearHTML();
 								}
 
-								$response = file_get_contents( $url . $prefix . '/api.php?format=json&action=parse&prop=text|categorieshtml&redirects&disablepp&pst&text={{:Help:' . $dbkey . '}}' );
+								$response = Http::get( $url . $prefix . '/api.php?format=json&action=parse&prop=text|categorieshtml&redirects&disablepp&pst&text={{:Help:' . $dbkey . '}}' );
 								$data = json_decode( $response, /*assoc=*/ true );
 								$text = $data['parse']['text']['*'];
 								$text_html = str_replace( '<span class="editsection">[<a href="'.$prefix.'/', '<span class="editsection">[<a href="'.$url.$prefix.'/', $text ); // re-locate [edit] links to help wiki
@@ -183,7 +183,7 @@ function fnHelpCommonsRedirectTalks( &$helppage, &$outputDone, &$pcache ) {
 						}
 
 						// check if requested page does exist
-						$apiResponse = file_get_contents( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $dbkey );
+						$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $dbkey );
 						$apiData = unserialize( $apiResponse );
 
 						if ( !$apiResponse ) {
@@ -251,7 +251,7 @@ function fnHelpCommonsInsertTalkpageTab( $talkpage, &$content_actions ) {
 
 
 						// check if requested page does exist
-						$apiResponse = file_get_contents( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $talkpage->getTitle()->getDBkey() );
+						$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $talkpage->getTitle()->getDBkey() );
 						$apiData = unserialize( $apiResponse );
 
 						if ( !$apiResponse ) {
@@ -338,7 +338,7 @@ function fnHelpCommonsInsertActionTab( $action, &$content_actions ) {
 
 
 						// check if requested page does exist
-						$apiResponse = file_get_contents( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $action->getTitle()->getDBkey() );
+						$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $action->getTitle()->getDBkey() );
 						$apiData = unserialize( $apiResponse );
 
 						if ( !$apiResponse ) {
@@ -547,7 +547,7 @@ function fnHelpCommonsProtection( &$title, &$user, $action, &$result ) {
 
 							case 'existing':
 								// check if requested page does exist
-								$apiResponse = file_get_contents( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $title->getDBkey() );
+								$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $title->getDBkey() );
 								$apiData = unserialize( $apiResponse );
 
 								if ( !$apiResponse ) {
@@ -631,7 +631,7 @@ function fnHelpCommonsMakeBlueLinks( $skin, $target, &$text, &$customAttribs, &$
 						}
 
 						// check if requested page does exist
-						$apiResponse = file_get_contents( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $target->getDBkey() );
+						$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $target->getDBkey() );
 						$apiData = unserialize( $apiResponse );
 
 						if ( !$apiResponse ) {
@@ -698,7 +698,7 @@ function fnHelpCommonsPageIsKnown( $page ) {
 						}
 
 						// check if requested page does exist
-						$apiResponse = file_get_contents( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $page->getDBkey() );
+						$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $page->getDBkey() );
 						$apiData = unserialize( $apiResponse );
 
 						if ( !$apiResponse ) {
@@ -762,7 +762,7 @@ function fnHelpCommonsTalkIsKnown( $talk ) {
 						}
 
 						// check if requested page does exist
-						$apiPageResponse = file_get_contents( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $talk->getDBkey() );
+						$apiPageResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $talk->getDBkey() );
 						$apiPageData = unserialize( $apiPageResponse );
 
 						if ( !$apiPageResponse ) {
@@ -778,7 +778,7 @@ function fnHelpCommonsTalkIsKnown( $talk ) {
 						}
 
 						// check if requested talkpage does exist
-						$apiTalkResponse = file_get_contents( $url . $prefix . '/api.php?format=php&action=query&titles=Help_talk:' . $talk->getDBkey() );
+						$apiTalkResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help_talk:' . $talk->getDBkey() );
 						$apiTalkData = unserialize( $apiTalkResponse );
 
 						if ( !$apiTalkResponse ) {
