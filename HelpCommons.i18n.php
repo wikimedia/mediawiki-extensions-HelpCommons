@@ -234,3 +234,14 @@ $messages['ta'] = array(
 	'helpcommons-info' => 'இந்த உள்ளடக்கம்  $1 இல் இருந்து பெறப்பட்டது.  $2 ஐப் பார்க்கவும்.',
 );
 
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Linforest
+ */
+$messages['zh-hans'] = array(
+	'helpcommons-desc' => '从某个外部的帮助维基站点获取帮助页面，并将这些页面纳入到本维基站点当中',
+	'helpcommons-create' => '在帮助维基站点Help Wiki上创建',
+	'helpcommons-edit' => '在帮助维基站点Help Wiki上编辑',
+	'helpcommons-discussion' => '在帮助维基站点Help Wiki上对此加以讨论',
+	'helpcommons-info' => '此纳入获取自$1。参见$2。',
+);
+
