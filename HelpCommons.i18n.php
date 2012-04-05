@@ -166,8 +166,11 @@ $messages['ia'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'helpcommons-desc' => 'Hëllefssäiten aus enger externer Wiki kënnen an dës Wiki agebonn ginn',
 	'helpcommons-create' => 'Op Help-Wiki uleeën',
 	'helpcommons-edit' => 'Op Help-Wiki änneren',
+	'helpcommons-discussion' => 'Diskutéiert dëst op Help Wiki',
+	'helpcommons-info' => 'Dësen Inhalt gouf vu(n) $1 iwwerholl. Kuckt $2.',
 );
 
 /** Macedonian (Македонски)
