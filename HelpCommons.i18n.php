@@ -162,6 +162,17 @@ $messages['ia'] = array(
 	'helpcommons-info' => 'Iste contento es obtenite ab $1. Vide $2.',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'helpcommons-desc' => '외부 도움말 위키에서 도움말 문서를 불러와 이 위키에 포함시킵니다.',
+	'helpcommons-create' => '도움말 위키에 문서 생성하기',
+	'helpcommons-edit' => '도움말 위키에서 편집하기',
+	'helpcommons-discussion' => '이 주제에 대해 도움말 위키에서 토론하기',
+	'helpcommons-info' => '이 컨텐츠는 $1에서 가져온 것입니다. $2를 참고하세요.',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
