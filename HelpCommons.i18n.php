@@ -98,10 +98,11 @@ $messages['eo'] = array(
 
 /** Spanish (Español)
  * @author Armando-Martin
+ * @author SVG
  */
 $messages['es'] = array(
 	'helpcommons-desc' => 'Recupera páginas de ayuda de un wiki de ayuda externa y las incluye en este wiki',
-	'helpcommons-create' => 'Crear en el Wiki de ayuda',
+	'helpcommons-create' => 'Crear en el wiki de ayuda',
 	'helpcommons-edit' => 'Editar en el wiki de ayuda',
 	'helpcommons-discussion' => 'Discutir esto en el wiki de ayuda',
 	'helpcommons-info' => 'Este contenido se extrajo desde  $1 . Véase $2.',
@@ -164,9 +165,10 @@ $messages['ia'] = array(
 
 /** Korean (한국어)
  * @author Kwj2772
+ * @author SVG
  */
 $messages['ko'] = array(
-	'helpcommons-desc' => '외부 도움말 위키에서 도움말 문서를 불러와 이 위키에 포함시킵니다.',
+	'helpcommons-desc' => '외부 도움말 위키에서 도움말 문서를 불러와 이 위키에 포함시킵니다',
 	'helpcommons-create' => '도움말 위키에 문서 생성하기',
 	'helpcommons-edit' => '도움말 위키에서 편집하기',
 	'helpcommons-discussion' => '이 주제에 대해 도움말 위키에서 토론하기',
@@ -175,12 +177,13 @@ $messages['ko'] = array(
 
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
+ * @author SVG
  */
 $messages['lb'] = array(
 	'helpcommons-desc' => 'Hëllefssäiten aus enger externer Wiki kënnen an dës Wiki agebonn ginn',
 	'helpcommons-create' => 'Op Help-Wiki uleeën',
 	'helpcommons-edit' => 'Op Help-Wiki änneren',
-	'helpcommons-discussion' => 'Diskutéiert dëst op Help Wiki',
+	'helpcommons-discussion' => 'Diskutéiert dëst op Help-Wiki',
 	'helpcommons-info' => 'Dësen Inhalt gouf vu(n) $1 iwwerholl. Kuckt $2.',
 );
 
