@@ -163,6 +163,17 @@ $messages['ia'] = array(
 	'helpcommons-info' => 'Iste contento es obtenite ab $1. Vide $2.',
 );
 
+/** Japanese (日本語)
+ * @author Shirayuki
+ */
+$messages['ja'] = array(
+	'helpcommons-desc' => '外部のヘルプウィキからヘルプページを取得して、このウィキに含める',
+	'helpcommons-create' => 'ヘルプウィキで作成',
+	'helpcommons-edit' => 'ヘルプウィキで編集',
+	'helpcommons-discussion' => 'ヘルプウィキでこれについて議論',
+	'helpcommons-info' => '$1 から取得した内容です。$2 をご覧ください。',
+);
+
 /** Korean (한국어)
  * @author Kwj2772
  * @author SVG
