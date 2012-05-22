@@ -163,6 +163,17 @@ $messages['ia'] = array(
 	'helpcommons-info' => 'Iste contento es obtenite ab $1. Vide $2.',
 );
 
+/** Italian (Italiano)
+ * @author Beta16
+ */
+$messages['it'] = array(
+	'helpcommons-desc' => 'Recupera pagine di aiuto da un wiki esterno e le include in questo wiki',
+	'helpcommons-create' => 'Crea nel wiki di aiuto',
+	'helpcommons-edit' => 'Modifica nel wiki di aiuto',
+	'helpcommons-discussion' => 'Discutine sul wiki di aiuto',
+	'helpcommons-info' => 'Questo contenuto è recuperato da $1. Vedi $2.',
+);
+
 /** Japanese (日本語)
  * @author Shirayuki
  */
