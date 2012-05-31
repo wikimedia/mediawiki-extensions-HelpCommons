@@ -63,7 +63,7 @@ $messages['be-tarask'] = array(
  * @author Fulup
  */
 $messages['br'] = array(
-	'helpcommons-desc' => 'Adtapout pajennoù skoazell ur wiki skoazell hag enframmañ anezho e wikioù all eus familh ar wikioù',
+	'helpcommons-desc' => 'Adtapout pajennoù skoazell ur wiki skoazell diavaez hag enframmañ anezho er wik-mañ',
 );
 
 /** German (Deutsch)
