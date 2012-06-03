@@ -59,7 +59,7 @@ $messages['be-tarask'] = array(
 	'helpcommons-info' => 'Гэты зьмест быў запытаны з $1. Глядзіце $2.',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
