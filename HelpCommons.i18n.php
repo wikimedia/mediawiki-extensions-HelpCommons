@@ -35,7 +35,7 @@ $messages['qqq'] = array(
 	'helpcommons-info' => "Short description about source at the left side in top in the help page's infobox",
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Xuacu
  */
 $messages['ast'] = array(
@@ -96,7 +96,7 @@ $messages['eo'] = array(
 	'helpcommons-desc' => 'Alportas helpopaĝojn el helpa vikio kaj inkluzivigas ĝin en aliajn vikiojn de la vikia familio',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  * @author SVG
  */
@@ -108,7 +108,7 @@ $messages['es'] = array(
 	'helpcommons-info' => 'Este contenido se extrajo desde  $1 . Véase $2.',
 );
 
-/** French (Français)
+/** French (français)
  * @author Gomoko
  */
 $messages['fr'] = array(
@@ -152,7 +152,7 @@ $messages['hsb'] = array(
 	'helpcommons-info' => 'Tutón wobsah so z $1 zapřijima. Hlej $2.',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -163,7 +163,7 @@ $messages['ia'] = array(
 	'helpcommons-info' => 'Iste contento es obtenite ab $1. Vide $2.',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  */
 $messages['it'] = array(
@@ -209,7 +209,7 @@ $messages['lb'] = array(
 	'helpcommons-info' => 'Dësen Inhalt gouf vu(n) $1 iwwerholl. Kuckt $2.',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author SVG
  */
@@ -233,7 +233,7 @@ $messages['nl'] = array(
 	'helpcommons-info' => 'Deze inhoud wordt toegevoegd vanuit $1. Zie $2.',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author BeginaFelicysym
  */
 $messages['pl'] = array(
@@ -252,7 +252,7 @@ $messages['pms'] = array(
 	'helpcommons-desc' => "A arcupera dle pàgine d'agiut da na wiki d'agiut e a j'anseriss an d'àutre wiki ant la famija ëd wiki",
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Express2000
  * @author Александр Сигачёв
  */
@@ -273,7 +273,7 @@ $messages['ta'] = array(
 	'helpcommons-info' => 'இந்த உள்ளடக்கம்  $1 இல் இருந்து பெறப்பட்டது.  $2 ஐப் பார்க்கவும்.',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Linforest
  */
 $messages['zh-hans'] = array(
