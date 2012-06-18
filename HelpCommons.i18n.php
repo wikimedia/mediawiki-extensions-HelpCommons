@@ -197,6 +197,17 @@ $messages['ko'] = array(
 	'helpcommons-info' => '이 컨텐츠는 $1에서 가져온 것입니다. $2를 참고하세요.',
 );
 
+/** Colognian (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'helpcommons-desc' => 'Höllt Sigge met Hölp-Täxte vun enem andere Wiki en heh dat Wiki.',
+	'helpcommons-create' => 'Em Hölp-Wiki aanlääje',
+	'helpcommons-edit' => 'Em Hölp-Wiki ändere',
+	'helpcommons-discussion' => 'Em Hölp-Wiki drövver Klaafe',
+	'helpcommons-info' => 'Dat heh kütt vun {{GRAMMAR:Accusative|$1}}. Loor noh $2.',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  * @author SVG
