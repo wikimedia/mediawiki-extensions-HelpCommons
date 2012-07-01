@@ -46,7 +46,7 @@ $messages['ast'] = array(
 	'helpcommons-info' => 'Esti conteníu ta sacáu de $1. Ver $2.',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -78,7 +78,7 @@ $messages['de'] = array(
 	'helpcommons-info' => 'Dieser Inhalt wird aus $1 eingebunden. Siehe $2.',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -119,7 +119,7 @@ $messages['fr'] = array(
 	'helpcommons-info' => 'Ce contenu est extrait de $1. Voyez $2.',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -141,7 +141,7 @@ $messages['he'] = array(
 	'helpcommons-info' => "התוכן הזה אוחזר מ{{GRAMMAR:תחילית|$1}}. ר' $2.",
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
