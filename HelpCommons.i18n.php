@@ -285,6 +285,17 @@ $messages['ta'] = array(
 	'helpcommons-info' => 'இந்த உள்ளடக்கம்  $1 இல் இருந்து பெறப்பட்டது.  $2 ஐப் பார்க்கவும்.',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'helpcommons-desc' => 'Sumasalok ng mga pahina ng tulong mula sa isang wiki ng panlabas na tulong at nagsasama ng mga ito na papaloob sa wiking ito',
+	'helpcommons-create' => 'Likhain sa Wiking Pantulong',
+	'helpcommons-edit' => 'Baguhin sa Wiking Pantulong',
+	'helpcommons-discussion' => 'Talakayin ito sa Wiking Pantulong',
+	'helpcommons-info' => 'Ang nilalamang ito ay sinalok mula sa $1. Tingnan ang $2.',
+);
+
 /** Simplified Chinese (‪中文（简体）‬)
  * @author Linforest
  */
