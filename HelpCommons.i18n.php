@@ -119,6 +119,15 @@ $messages['fr'] = array(
 	'helpcommons-info' => 'Ce contenu est extrait de $1. Voyez $2.',
 );
 
+/** Franco-Provençal (arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'helpcommons-create' => 'Fâre sur lo vouiqui d’éde',
+	'helpcommons-edit' => 'Changiér sur lo vouiqui d’éde',
+	'helpcommons-discussion' => 'Nen discutar sur lo vouiqui d’éde',
+);
+
 /** Galician (galego)
  * @author Toliño
  */
