@@ -270,11 +270,11 @@ $messages['pl'] = array(
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'helpcommons-desc' => "A arcupera dle pàgine d'agiut da na wiki esterna d'agiut e a j'anseriss an sta wiki",
+	'helpcommons-desc' => "A arcùpera dle pàgine d'agiut da na wiki esterna d'agiut e a j'anseriss an costa wiki",
 	'helpcommons-create' => "Crea ant la Wiki d'Agiut.",
 	'helpcommons-edit' => "Modìfica dzora la Wiki d'Agiut",
 	'helpcommons-discussion' => "Discut sòn dzora la Wiki d'Agiut",
-	'helpcommons-info' => "Sto contnù a l'é arcuperà da $1. Varda $2.",
+	'helpcommons-info' => "Cost contnù a l'é arcuperà da $1. Ch'a vëdda $2.",
 );
 
 /** Russian (русский)
