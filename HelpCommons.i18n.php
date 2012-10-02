@@ -46,7 +46,7 @@ $messages['ast'] = array(
 	'helpcommons-info' => 'Esti conteníu ta sacáu de $1. Ver $2.',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -309,7 +309,7 @@ $messages['tl'] = array(
 	'helpcommons-info' => 'Ang nilalamang ito ay sinalok mula sa $1. Tingnan ang $2.',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Linforest
  */
 $messages['zh-hans'] = array(
