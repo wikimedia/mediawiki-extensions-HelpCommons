@@ -93,7 +93,7 @@ $messages['dsb'] = array(
  * @author ThomasPusch
  */
 $messages['eo'] = array(
-	'helpcommons-desc' => 'Alportas helpopaĝojn el helpa vikio kaj inkluzivigas ĝin en aliajn vikiojn de la vikia familio',
+	'helpcommons-desc' => 'Alportas helpopaĝojn el helpa vikio kaj inkluzivigas ĝin en aliajn vikiojn de la vikia familio', # Fuzzy
 );
 
 /** Spanish (español)
@@ -320,7 +320,8 @@ $messages['zh-hans'] = array(
 	'helpcommons-info' => '此纳入获取自$1。参见$2。',
 );
 
-/** Traditional Chinese (中文（繁體）‎) */
+/** Traditional Chinese (中文（繁體）‎)
+ */
 $messages['zh-hant'] = array(
 	'helpcommons-desc' => '從某個外部的幫助維基站點獲取幫助頁面，並將這些頁面納入到本維基站點當中',
 	'helpcommons-create' => '在幫助維基站點Help Wiki上創建',
@@ -328,4 +329,3 @@ $messages['zh-hant'] = array(
 	'helpcommons-discussion' => '在幫助維基站點Help Wiki上對此加以討論',
 	'helpcommons-info' => '此納入獲取自$1。參見$2。',
 );
-
