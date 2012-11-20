@@ -78,6 +78,14 @@ $messages['de'] = array(
 	'helpcommons-info' => 'Dieser Inhalt wird aus $1 eingebunden. Siehe $2.',
 );
 
+/** Zazaki (Zazaki)
+ * @author Erdemaslancan
+ */
+$messages['diq'] = array(
+	'helpcommons-create' => 'Wiki de Pheşti Vıraze',
+	'helpcommons-edit' => 'Wiki de Pheşti Timar ke',
+);
+
 /** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
