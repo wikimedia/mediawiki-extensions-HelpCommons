@@ -317,6 +317,17 @@ $messages['tl'] = array(
 	'helpcommons-info' => 'Ang nilalamang ito ay sinalok mula sa $1. Tingnan ang $2.',
 );
 
+/** Ukrainian (українська)
+ * @author Ата
+ */
+$messages['uk'] = array(
+	'helpcommons-desc' => 'Дістає сторінки довідки із зовнішньої довідкової вікі і додає до цієї вікі',
+	'helpcommons-create' => 'Створити на Довідковій Вікі',
+	'helpcommons-edit' => 'Редагувати на Довідковій Вікі',
+	'helpcommons-discussion' => 'Обговорити це на Довідковій Вікі',
+	'helpcommons-info' => 'Цей вміст взято з $1. Див. $2.',
+);
+
 /** Simplified Chinese (中文（简体）‎)
  * @author Linforest
  */
