@@ -250,6 +250,16 @@ $messages['mk'] = array(
 	'helpcommons-info' => 'Овие содржини се преземени од $1. Вид. $2.',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Pizza1016
+ */
+$messages['ms'] = array(
+	'helpcommons-create' => 'Cipta di Help Wiki',
+	'helpcommons-edit' => 'Sunting di Help Wiki',
+	'helpcommons-discussion' => 'Bincangkan ini di Help Wiki',
+	'helpcommons-info' => 'Kandungan ini diambil dari $1. Lihat $2.',
+);
+
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Siebrand
@@ -295,6 +305,15 @@ $messages['ru'] = array(
 	'helpcommons-edit' => 'Отредактировать на Справочной Вики',
 	'helpcommons-discussion' => 'Обсудить на Справочной Вики',
 	'helpcommons-info' => 'Это содержимое собрано из $1. Обратитесь к $2.',
+);
+
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'helpcommons-create' => 'උපකාරක විකියේ තනන්න',
+	'helpcommons-edit' => 'උපකාරක විකියේ සංස්කරණය කරන්න',
+	'helpcommons-discussion' => 'මෙය උපකාරක විකියේ සාකච්ඡා කරන්න',
 );
 
 /** Tamil (தமிழ்)
