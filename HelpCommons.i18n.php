@@ -251,9 +251,11 @@ $messages['mk'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Pizza1016
  */
 $messages['ms'] = array(
+	'helpcommons-desc' => 'Mengambil halaman bantuan dari wiki bantuan luaran lalu menyertakannya ke dalam wiki ini',
 	'helpcommons-create' => 'Cipta di Help Wiki',
 	'helpcommons-edit' => 'Sunting di Help Wiki',
 	'helpcommons-discussion' => 'Bincangkan ini di Help Wiki',
