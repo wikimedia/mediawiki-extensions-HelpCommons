@@ -46,6 +46,16 @@ $messages['ast'] = array(
 	'helpcommons-info' => 'Esti conteníu ta sacáu de $1. Ver $2.',
 );
 
+/** South Azerbaijani (تورکجه)
+ * @author Ebrahimi-amir
+ */
+$messages['azb'] = array(
+	'helpcommons-create' => 'بیردنه ویکی یاردیم یاراد',
+	'helpcommons-edit' => 'ویکی یاردیمدا دَییشیکلیک ائت',
+	'helpcommons-discussion' => 'بونو ویکی یاردیمدا دانیش',
+	'helpcommons-info' => 'بو یازی $1 طرفیندن آلیندی. $2 -ه / ا باخ',
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
