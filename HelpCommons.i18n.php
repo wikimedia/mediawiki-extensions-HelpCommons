@@ -26,9 +26,10 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author SVG
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'helpcommons-desc' => '{{desc}}',
+	'helpcommons-desc' => '{{desc|name=Help Commons|url=http://www.mediawiki.org/wiki/Extension:HelpCommons}}',
 	'helpcommons-create' => 'Second create tab connected to Help Wiki',
 	'helpcommons-edit' => 'Second edit tab connected to Help Wiki',
 	'helpcommons-discussion' => 'Second discussion tab connected to Help Wiki',
