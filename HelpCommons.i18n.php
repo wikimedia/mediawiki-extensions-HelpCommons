@@ -308,6 +308,17 @@ $messages['pms'] = array(
 	'helpcommons-info' => "Cost contnù a l'é arcuperà da $1. Ch'a vëdda $2.",
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'helpcommons-desc' => "Pàggene de aijute da analizzà da 'na uicchi d'aijute de fore e 'ngluse jndr'à sta uicchi",
+	'helpcommons-create' => 'Ccreje sus a Uicchi Aijute',
+	'helpcommons-edit' => 'Cange sus a Uicchi Aijute',
+	'helpcommons-discussion' => 'Discute sus a quiste sus a Uicchi Aijute',
+	'helpcommons-info' => "Stu condenute ha state analizzate da $1. 'Ndruche $2.",
+);
+
 /** Russian (русский)
  * @author Express2000
  * @author Александр Сигачёв
