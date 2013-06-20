@@ -340,6 +340,13 @@ $messages['si'] = array(
 	'helpcommons-discussion' => 'මෙය උපකාරක විකියේ සාකච්ඡා කරන්න',
 );
 
+/** Swedish (svenska)
+ * @author Jopparn
+ */
+$messages['sv'] = array(
+	'helpcommons-info' => 'Detta innehåll hämtas från $1. Se $2.',
+);
+
 /** Tamil (தமிழ்)
  * @author Karthi.dr
  * @author Shanmugamp7
