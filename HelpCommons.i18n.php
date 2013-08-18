@@ -219,7 +219,7 @@ $messages['ja'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'helpcommons-desc' => '외부 도움말 위키에서 도움말 문서를 불러와 이 위키에 포함시킵니다',
+	'helpcommons-desc' => '바깥 도움말 위키에서 도움말 문서를 불러와 이 위키에 포함시킵니다',
 	'helpcommons-create' => '도움말 위키에 문서 만들기',
 	'helpcommons-edit' => '도움말 위키에서 편집하기',
 	'helpcommons-discussion' => '이 주제에 대해 도움말 위키에서 토론하기',
