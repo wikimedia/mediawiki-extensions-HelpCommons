@@ -33,7 +33,11 @@ $messages['qqq'] = array(
 	'helpcommons-create' => 'Second create tab connected to Help Wiki',
 	'helpcommons-edit' => 'Second edit tab connected to Help Wiki',
 	'helpcommons-discussion' => 'Second discussion tab connected to Help Wiki',
-	'helpcommons-info' => "Short description about source at the left side in top in the help page's infobox",
+	'helpcommons-info' => "Short description about source at the left side in top in the help page's infobox.
+
+Parameters:
+* $1 - name
+* $2 - link which points to Help: page on Commons",
 );
 
 /** Asturian (asturianu)
