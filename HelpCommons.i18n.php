@@ -81,6 +81,17 @@ $messages['br'] = array(
 	'helpcommons-desc' => 'Adtapout pajennoù skoazell ur wiki skoazell diavaez hag enframmañ anezho er wik-mañ',
 );
 
+/** Welsh (Cymraeg)
+ * @author Lloffiwr
+ */
+$messages['cy'] = array(
+	'helpcommons-desc' => 'Yn nôl tudalennau cymorth o wici cymorth allanol ac yn eu cynnwys ar y wici hwn',
+	'helpcommons-create' => 'Gosod ar y Wici Cymorth',
+	'helpcommons-edit' => 'Golygu ar y Wici Cymorth',
+	'helpcommons-discussion' => 'Trafod hwn ar y Wici Cymorth',
+	'helpcommons-info' => "Mae'r cynnwys hwn wedi cael ei nôl o $1. Gweler $2.",
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author SVG
