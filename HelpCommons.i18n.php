@@ -323,6 +323,13 @@ $messages['pms'] = array(
 	'helpcommons-info' => "Cost contnù a l'é arcuperà da $1. Ch'a vëdda $2.",
 );
 
+/** Brazilian Portuguese (português do Brasil)
+ * @author Cainamarques
+ */
+$messages['pt-br'] = array(
+	'helpcommons-desc' => 'Extrai páginas de ajuda de uma wiki externa e as inclui nesta wiki',
+);
+
 /** tarandíne (tarandíne)
  * @author Joetaras
  */
