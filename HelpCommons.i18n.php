@@ -142,6 +142,15 @@ $messages['es'] = array(
 	'helpcommons-info' => 'Este contenido se extrajo desde  $1 . Véase $2.',
 );
 
+/** Persian (فارسی)
+ * @author Armin1392
+ */
+$messages['fa'] = array(
+	'helpcommons-create' => 'ایجاد در ویکی کمکی',
+	'helpcommons-edit' => 'ویرایش در ویکی کمکی',
+	'helpcommons-discussion' => 'گفتگو در ویکی کمکی',
+);
+
 /** French (français)
  * @author Gomoko
  */
