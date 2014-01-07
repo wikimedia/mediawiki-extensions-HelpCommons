@@ -149,6 +149,7 @@ $messages['fa'] = array(
 	'helpcommons-create' => 'ایجاد در ویکی کمکی',
 	'helpcommons-edit' => 'ویرایش در ویکی کمکی',
 	'helpcommons-discussion' => 'گفتگو در ویکی کمکی',
+	'helpcommons-info' => 'محتوت از $1 آورده شده‌است. $2 را مشاهده کنید.',
 );
 
 /** French (français)
