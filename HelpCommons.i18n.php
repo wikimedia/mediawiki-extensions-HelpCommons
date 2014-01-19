@@ -146,6 +146,7 @@ $messages['es'] = array(
  * @author Armin1392
  */
 $messages['fa'] = array(
+	'helpcommons-desc' => 'آوردن صفحات کمکی از ویکی کمکی خارجی و آنها را در این ویکی می‌گنجاند',
 	'helpcommons-create' => 'ایجاد در ویکی کمکی',
 	'helpcommons-edit' => 'ویرایش در ویکی کمکی',
 	'helpcommons-discussion' => 'گفتگو در ویکی کمکی',
