@@ -334,6 +334,17 @@ $messages['pms'] = array(
 	'helpcommons-info' => "Cost contnù a l'é arcuperà da $1. Ch'a vëdda $2.",
 );
 
+/** Portuguese (português)
+ * @author Hamilton Abreu
+ */
+$messages['pt'] = array(
+	'helpcommons-desc' => 'Obtém páginas de ajuda de uma wiki de ajuda externa e inclui-as nesta wiki',
+	'helpcommons-create' => 'Criar na Wiki de Ajuda',
+	'helpcommons-edit' => 'Editar na Wiki de Ajuda',
+	'helpcommons-discussion' => 'Discutir na Wiki de Ajuda',
+	'helpcommons-info' => 'Este conteúdo foi obtido da wiki $1. Ver $2.',
+);
+
 /** Brazilian Portuguese (português do Brasil)
  * @author Cainamarques
  */
