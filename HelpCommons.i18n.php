@@ -386,8 +386,13 @@ $messages['si'] = array(
 
 /** Swedish (svenska)
  * @author Jopparn
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
+	'helpcommons-desc' => 'Hämtar hjälpsidor från en extern hjälpwiki och inkluderar dem i denna wiki',
+	'helpcommons-create' => 'Skapa på Help Wiki',
+	'helpcommons-edit' => 'Redigera på Help Wiki',
+	'helpcommons-discussion' => 'Diskutera detta på Help Wiki',
 	'helpcommons-info' => 'Detta innehåll hämtas från $1. Se $2.',
 );
 
