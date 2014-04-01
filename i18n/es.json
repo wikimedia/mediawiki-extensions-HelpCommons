@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Armando-Martin",
+            "SVG"
+        ]
+    },
+    "helpcommons-desc": "Recupera páginas de ayuda de un wiki de ayuda externa y las incluye en este wiki",
+    "helpcommons-create": "Crear en el wiki de ayuda",
+    "helpcommons-edit": "Editar en el wiki de ayuda",
+    "helpcommons-discussion": "Discutir esto en el wiki de ayuda",
+    "helpcommons-info": "Este contenido se extrajo desde  $1 . Véase $2."
+}

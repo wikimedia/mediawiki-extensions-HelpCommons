@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Kghbln",
+            "SVG"
+        ]
+    },
+    "helpcommons-desc": "Ermöglicht das Einbinden des Hilfe-Namensraums aus einem externen Wiki in dieses Wiki",
+    "helpcommons-create": "Erstellen im Hilfe-Wiki",
+    "helpcommons-edit": "Bearbeiten im Hilfe-Wiki",
+    "helpcommons-discussion": "Diskussion im Hilfe-Wiki",
+    "helpcommons-info": "Dieser Inhalt wird aus $1 eingebunden. Siehe $2."
+}

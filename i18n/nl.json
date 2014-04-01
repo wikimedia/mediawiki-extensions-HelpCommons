@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "SPQRobin",
+            "Siebrand"
+        ]
+    },
+    "helpcommons-desc": "Maakt hulppagina's uit een externe hulpwiki beschikbaar in deze wiki",
+    "helpcommons-create": "Aanmaken op Hulpwiki",
+    "helpcommons-edit": "Bewerken op Hulpwiki",
+    "helpcommons-discussion": "Bespreken op Hulpwiki",
+    "helpcommons-info": "Deze inhoud wordt toegevoegd vanuit $1. Zie $2."
+}

@@ -1,0 +1,12 @@
+{
+    "@metadata": {
+        "authors": [
+            "Shirayuki"
+        ]
+    },
+    "helpcommons-desc": "外部のヘルプウィキからヘルプページを取得して、このウィキに含める",
+    "helpcommons-create": "ヘルプウィキで作成",
+    "helpcommons-edit": "ヘルプウィキで編集",
+    "helpcommons-discussion": "ヘルプウィキでこれについて議論",
+    "helpcommons-info": "$1 から取得した内容です。$2 をご覧ください。"
+}

@@ -1,0 +1,12 @@
+{
+    "@metadata": {
+        "authors": [
+            "Toliño"
+        ]
+    },
+    "helpcommons-desc": "Extrae as páxinas de axuda dun wiki auxiliar, externo ou local, e inclúe os contidos neste wiki",
+    "helpcommons-create": "Crear no wiki auxiliar",
+    "helpcommons-edit": "Editar no wiki auxiliar",
+    "helpcommons-discussion": "Debater no wiki auxiliar",
+    "helpcommons-info": "Este contido extraeuse de $1. Véxase $2."
+}

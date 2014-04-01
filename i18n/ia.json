@@ -1,0 +1,12 @@
+{
+    "@metadata": {
+        "authors": [
+            "McDutchie"
+        ]
+    },
+    "helpcommons-desc": "Obtene paginas de adjuta ab un wiki de adjuta externe e los include in iste wiki",
+    "helpcommons-create": "Crear in wiki de adjuta",
+    "helpcommons-edit": "Modificar in wiki de adjuta",
+    "helpcommons-discussion": "Discuter isto in wiki de adjuta",
+    "helpcommons-info": "Iste contento es obtenite ab $1. Vide $2."
+}

@@ -23,10 +23,11 @@ $wgExtensionCredits['other'][] = array(
 	'author'         => array( 'Tim Weyer' ),
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:HelpCommons',
 	'descriptionmsg' => 'helpcommons-desc',
-	'version'        => '1.3.0', // 02-05-2012
+	'version'        => '1.4.0',
 );
 
 // Internationalization
+$wgMessagesDirs['HelpCommons'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['HelpCommons'] = dirname( __FILE__ ) . '/HelpCommons.i18n.php';
 
 // Help wiki(s) where the help namespace is fetched from
