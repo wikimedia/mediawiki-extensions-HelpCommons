@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bjankuloski06",
-            "SVG"
-        ]
-    },
-    "helpcommons-desc": "Презема страници за помош од тој именски простор и ги вклучува во ова вики",
-    "helpcommons-create": "Создај на Викито за помош",
-    "helpcommons-edit": "Уреди на Викито за помош",
-    "helpcommons-discussion": "Продискутирај го ова на Викито за помош",
-    "helpcommons-info": "Овие содржини се преземени од $1. Вид. $2."
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06",
+			"SVG"
+		]
+	},
+	"helpcommons-desc": "Презема страници за помош од тој именски простор и ги вклучува во ова вики",
+	"helpcommons-create": "Создај на Викито за помош",
+	"helpcommons-edit": "Уреди на Викито за помош",
+	"helpcommons-discussion": "Продискутирај го ова на Викито за помош",
+	"helpcommons-info": "Овие содржини се преземени од $1. Вид. $2."
 }

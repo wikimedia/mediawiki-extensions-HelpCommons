@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Beta16"
-        ]
-    },
-    "helpcommons-desc": "Recupera pagine di aiuto da un wiki esterno e le include in questo wiki",
-    "helpcommons-create": "Crea nel wiki di aiuto",
-    "helpcommons-edit": "Modifica nel wiki di aiuto",
-    "helpcommons-discussion": "Discutine sul wiki di aiuto",
-    "helpcommons-info": "Questo contenuto è recuperato da $1. Vedi $2."
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"helpcommons-desc": "Recupera pagine di aiuto da un wiki esterno e le include in questo wiki",
+	"helpcommons-create": "Crea nel wiki di aiuto",
+	"helpcommons-edit": "Modifica nel wiki di aiuto",
+	"helpcommons-discussion": "Discutine sul wiki di aiuto",
+	"helpcommons-info": "Questo contenuto è recuperato da $1. Vedi $2."
 }

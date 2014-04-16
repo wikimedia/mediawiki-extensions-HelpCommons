@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "AnakngAraw"
-        ]
-    },
-    "helpcommons-desc": "Sumasalok ng mga pahina ng tulong mula sa isang wiki ng panlabas na tulong at nagsasama ng mga ito na papaloob sa wiking ito",
-    "helpcommons-create": "Likhain sa Wiking Pantulong",
-    "helpcommons-edit": "Baguhin sa Wiking Pantulong",
-    "helpcommons-discussion": "Talakayin ito sa Wiking Pantulong",
-    "helpcommons-info": "Ang nilalamang ito ay sinalok mula sa $1. Tingnan ang $2."
+	"@metadata": {
+		"authors": [
+			"AnakngAraw"
+		]
+	},
+	"helpcommons-desc": "Sumasalok ng mga pahina ng tulong mula sa isang wiki ng panlabas na tulong at nagsasama ng mga ito na papaloob sa wiking ito",
+	"helpcommons-create": "Likhain sa Wiking Pantulong",
+	"helpcommons-edit": "Baguhin sa Wiking Pantulong",
+	"helpcommons-discussion": "Talakayin ito sa Wiking Pantulong",
+	"helpcommons-info": "Ang nilalamang ito ay sinalok mula sa $1. Tingnan ang $2."
 }

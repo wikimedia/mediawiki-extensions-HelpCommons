@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Linforest",
-            "Xiaomingyan"
-        ]
-    },
-    "helpcommons-desc": "从某个外部的帮助维基站点获取帮助页面，并将这些页面纳入到本维基站点当中",
-    "helpcommons-create": "在Help Wiki创建",
-    "helpcommons-edit": "在Help Wiki编辑",
-    "helpcommons-discussion": "在帮助维基站点Help Wiki上对此加以讨论",
-    "helpcommons-info": "此纳入获取自$1。参见$2。"
+	"@metadata": {
+		"authors": [
+			"Linforest",
+			"Xiaomingyan"
+		]
+	},
+	"helpcommons-desc": "从某个外部的帮助维基站点获取帮助页面，并将这些页面纳入到本维基站点当中",
+	"helpcommons-create": "在Help Wiki创建",
+	"helpcommons-edit": "在Help Wiki编辑",
+	"helpcommons-discussion": "在帮助维基站点Help Wiki上对此加以讨论",
+	"helpcommons-info": "此纳入获取自$1。参见$2。"
 }

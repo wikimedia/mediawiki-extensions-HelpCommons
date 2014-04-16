@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Xuacu"
-        ]
-    },
-    "helpcommons-desc": "Estrái páxines d'ayuda d'una wiki d'ayuda esterna y les inclúi nesta wiki",
-    "helpcommons-create": "Crear na wiki d'ayuda",
-    "helpcommons-edit": "Editar na wiki d'ayuda",
-    "helpcommons-discussion": "Aldericar na wiki d'ayuda",
-    "helpcommons-info": "Esti conteníu ta sacáu de $1. Ver $2."
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"helpcommons-desc": "Estrái páxines d'ayuda d'una wiki d'ayuda esterna y les inclúi nesta wiki",
+	"helpcommons-create": "Crear na wiki d'ayuda",
+	"helpcommons-edit": "Editar na wiki d'ayuda",
+	"helpcommons-discussion": "Aldericar na wiki d'ayuda",
+	"helpcommons-info": "Esti conteníu ta sacáu de $1. Ver $2."
 }

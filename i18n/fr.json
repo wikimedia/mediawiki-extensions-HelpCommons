@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Gomoko"
-        ]
-    },
-    "helpcommons-desc": "Récupérer les pages d'aide d'un wiki d'aide externe ou local et les inclure dans ce wiki",
-    "helpcommons-create": "Créer sur le wiki d'aide",
-    "helpcommons-edit": "Modifier sur le wiki d'aide",
-    "helpcommons-discussion": "En discuter sur le wiki d'aide",
-    "helpcommons-info": "Ce contenu est extrait de $1. Voyez $2."
+	"@metadata": {
+		"authors": [
+			"Gomoko"
+		]
+	},
+	"helpcommons-desc": "Récupérer les pages d'aide d'un wiki d'aide externe ou local et les inclure dans ce wiki",
+	"helpcommons-create": "Créer sur le wiki d'aide",
+	"helpcommons-edit": "Modifier sur le wiki d'aide",
+	"helpcommons-discussion": "En discuter sur le wiki d'aide",
+	"helpcommons-info": "Ce contenu est extrait de $1. Voyez $2."
 }

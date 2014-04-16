@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Lloffiwr"
-        ]
-    },
-    "helpcommons-desc": "Yn nôl tudalennau cymorth o wici cymorth allanol ac yn eu cynnwys ar y wici hwn",
-    "helpcommons-create": "Gosod ar y Wici Cymorth",
-    "helpcommons-edit": "Golygu ar y Wici Cymorth",
-    "helpcommons-discussion": "Trafod hwn ar y Wici Cymorth",
-    "helpcommons-info": "Mae'r cynnwys hwn wedi cael ei nôl o $1. Gweler $2."
+	"@metadata": {
+		"authors": [
+			"Lloffiwr"
+		]
+	},
+	"helpcommons-desc": "Yn nôl tudalennau cymorth o wici cymorth allanol ac yn eu cynnwys ar y wici hwn",
+	"helpcommons-create": "Gosod ar y Wici Cymorth",
+	"helpcommons-edit": "Golygu ar y Wici Cymorth",
+	"helpcommons-discussion": "Trafod hwn ar y Wici Cymorth",
+	"helpcommons-info": "Mae'r cynnwys hwn wedi cael ei nôl o $1. Gweler $2."
 }
