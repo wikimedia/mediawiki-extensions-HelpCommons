@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cedric31"
+		]
+	},
+	"helpcommons-desc": "Recuperar las paginas d'ajuda d'un wiki d'ajuda extèrne o local e las inclure dins aqueste wiki",
+	"helpcommons-create": "Crear sul wiki d'ajuda",
+	"helpcommons-edit": "Modificar sul wiki d'ajuda",
+	"helpcommons-discussion": "Ne discutir sul wiki d'ajuda",
+	"helpcommons-info": "Aqueste contengut es extrach de $1. Vejatz $2."
+}
