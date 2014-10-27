@@ -3,7 +3,8 @@
 		"authors": [
 			"Linforest",
 			"Xiaomingyan",
-			"Mywood"
+			"Mywood",
+			"Impersonator 1"
 		]
 	},
 	"helpcommons-desc": "从外部帮助wiki获取帮助页面，并将它们包含到该wiki",
