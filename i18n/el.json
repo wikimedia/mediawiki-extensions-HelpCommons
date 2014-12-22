@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Geraki"
+		]
+	},
+	"helpcommons-desc": "Φέρνει σελίδες βοήθειας από ένα εξωτερικό βοηθητικό wiki και τις ενσωματώνει σε αυτό το wiki",
+	"helpcommons-create": "Δημιουργία στο Wiki Βοήθειας",
+	"helpcommons-edit": "Επεξεργασία στο Wiki Βοήθειας",
+	"helpcommons-discussion": "Συζητήστε το στο Wiki Βοήθειας",
+	"helpcommons-info": "Αυτό το περιεχόμενο έχει ανακτηθεί από $1. Δείτε $2."
+}
