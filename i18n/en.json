@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "SVG"
-        ]
-    },
-    "helpcommons-desc": "Fetches help pages from an external help wiki and includes them into this wiki",
-    "helpcommons-create": "Create on Help Wiki",
-    "helpcommons-edit": "Edit on Help Wiki",
-    "helpcommons-discussion": "Discuss this on Help Wiki",
-    "helpcommons-info": "This content is fetched from $1. See $2."
+	"@metadata": {
+		"authors": [
+			"SVG"
+		]
+	},
+	"helpcommons-desc": "Fetches help pages from an external help wiki and includes them into this wiki",
+	"helpcommons-create": "Create on Help Wiki",
+	"helpcommons-edit": "Edit on Help Wiki",
+	"helpcommons-discussion": "Discuss this on Help Wiki",
+	"helpcommons-info": "This content is fetched from $1. See $2."
 }
