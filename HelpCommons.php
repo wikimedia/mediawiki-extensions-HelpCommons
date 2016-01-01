@@ -133,7 +133,8 @@ function fnHelpCommonsLoad( OutputPage &$helppage, Skin &$skin ) {
 								} else {
 									$content = $text_html;
 								}
-								$wgOut->addHTML( '<div id="helpCommons" style="border: solid 1px; padding: 10px; margin: 5px;">' . '<div class="helpCommonsInfo" style="text-align: right; font-size: smaller;padding: 5px;">' . wfMsgForContent( 'helpcommons-info', $name, '<a href="' . $url . $prefix . '/index.php?title=Help:' . $dbkey . '" title="' . $wgContLang->namespaceNames[NS_HELP] . ':' . str_replace( '_', ' ', $dbkey ) . '">' . $wgContLang->namespaceNames[NS_HELP] . ':' . str_replace( '_', ' ', $dbkey ) . '</a>' ) . '</div>' . $content . '</div>' );
+								$namespaceNames = $wgContLang->getNamespaces();
+								$wgOut->addHTML( '<div id="helpCommons" style="border: solid 1px; padding: 10px; margin: 5px;">' . '<div class="helpCommonsInfo" style="text-align: right; font-size: smaller;padding: 5px;">' . wfMsgForContent( 'helpcommons-info', $name, '<a href="' . $url . $prefix . '/index.php?title=Help:' . $dbkey . '" title="' . $namespaceNames[NS_HELP] . ':' . str_replace( '_', ' ', $dbkey ) . '">' . $namespaceNames[NS_HELP] . ':' . str_replace( '_', ' ', $dbkey ) . '</a>' ) . '</div>' . $content . '</div>' );
 								return false;
 							} else {
 								return true;
