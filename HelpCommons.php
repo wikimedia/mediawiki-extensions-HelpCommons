@@ -69,7 +69,8 @@ $wgHooks['TitleHelpCommonsTalkIsKnown'][] = 'fnHelpCommonsTalkIsKnown';
  * @return bool
  */
 function fnHelpCommonsLoad( OutputPage &$helppage, Skin &$skin ) {
-	global $wgRequest, $wgHelpCommonsFetchingWikis, $wgDBname, $wgLanguageCode, $wgOut, $wgHelpCommonsShowCategories, $wgContLang;
+	global $wgRequest, $wgHelpCommonsFetchingWikis,
+		$wgDBname, $wgLanguageCode, $wgOut, $wgHelpCommonsShowCategories, $wgContLang;
 
 	$title = $helppage->getTitle();
 
@@ -82,67 +83,70 @@ function fnHelpCommonsLoad( OutputPage &$helppage, Skin &$skin ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
 				foreach ( $helpWikiPrefixes as $helpWikiPrefix => $name ) {
-					if ( $wgLanguageCode == $language ) {
-
-						if ( $db != 'no-database' ) {
-							if ( $wgDBname == $db ) {
-								return true;
-							}
-						}
-
-						$dbkey = $title->getDBkey();
-
-						if ( $helpWikiPrefix != 'no-prefix' ) {
-							$prefix = '/' . $helpWikiPrefix;
-						} else {
-							$prefix = '';
-						}
-
-						// check if requested page does exist
-						$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $dbkey );
-						$apiData = unserialize( $apiResponse );
-
-						if ( !$apiResponse ) {
-							return true;
-						}
-
-						if ( !$apiData ) {
-							return true;
-						}
-
-						if ( !$apiData['query'] ) {
-							return true;
-						}
-
-						foreach( $apiData['query']['pages'] as $pageId => $pageData ) {
-							if ( !isset( $pageData['missing'] ) ) {
-
-								// remove noarticletext message and its <div> if not existent (does remove all content)
-								if ( !$title->exists() ) {
-									$wgOut->clearHTML();
-								}
-
-								$response = Http::get( $url . $prefix . '/api.php?format=json&action=parse&prop=text|categorieshtml&redirects&disablepp&pst&text={{:Help:' . $dbkey . '}}' );
-								$data = json_decode( $response, /*assoc=*/ true );
-								$text = $data['parse']['text']['*'];
-								$text_html = str_replace( '<span class="editsection">[<a href="'.$prefix.'/', '<span class="editsection">[<a href="'.$url.$prefix.'/', $text ); // re-locate [edit] links to help wiki
-								if ( $wgHelpCommonsShowCategories ) {
-									$categories = $data['parse']['categorieshtml']['*'];
-									$categories_html = str_replace( '<a href="', '<a href="'.$url, $categories );
-									$content = $text_html . $categories_html;
-								} else {
-									$content = $text_html;
-								}
-								$namespaceNames = $wgContLang->getNamespaces();
-								$wgOut->addHTML( '<div id="helpCommons" style="border: solid 1px; padding: 10px; margin: 5px;">' . '<div class="helpCommonsInfo" style="text-align: right; font-size: smaller;padding: 5px;">' . wfMsgForContent( 'helpcommons-info', $name, '<a href="' . $url . $prefix . '/index.php?title=Help:' . $dbkey . '" title="' . $namespaceNames[NS_HELP] . ':' . str_replace( '_', ' ', $dbkey ) . '">' . $namespaceNames[NS_HELP] . ':' . str_replace( '_', ' ', $dbkey ) . '</a>' ) . '</div>' . $content . '</div>' );
-								return false;
-							} else {
-								return true;
-							}
-						}
-
+					if ( $wgLanguageCode != $language ) {
+						continue;
 					}
 
+					if ( $db != 'no-database' && $wgDBname == $db ) {
+						return true;
+					}
+
+					$dbkey = $title->getDBkey();
+
+					if ( $helpWikiPrefix != 'no-prefix' ) {
+						$prefix = '/' . $helpWikiPrefix;
+					} else {
+						$prefix = '';
+					}
+
+					// check if requested page does exist
+					$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $dbkey );
+					$apiData = unserialize( $apiResponse );
+
+					if ( !$apiResponse || !$apiData || !$apiData['query'] ) {
+						return true;
+					}
+
+					foreach( $apiData['query']['pages'] as $pageId => $pageData ) {
+						if ( !isset( $pageData['missing'] ) ) {
+
+							// remove noarticletext message and its <div> if not existent (does remove all content)
+							if ( !$title->exists() ) {
+								$wgOut->clearHTML();
+							}
+
+							$response = Http::get(
+								$url . $prefix .
+								'/api.php?format=json&action=parse&prop=text|categorieshtml&redirects&disablepp&pst&text={{:Help:'
+								. $dbkey . '}}'
+							);
+							$data = json_decode( $response, /*assoc=*/ true );
+							$text = $data['parse']['text']['*'];
+							$text_html = str_replace(
+								'<span class="editsection">[<a href="'.$prefix.'/', '<span class="editsection">[<a href="'.$url.$prefix.'/', $text ); // re-locate [edit] links to help wiki
+							if ( $wgHelpCommonsShowCategories ) {
+								$categories = $data['parse']['categorieshtml']['*'];
+								$categories_html = str_replace( '<a href="', '<a href="'.$url, $categories );
+								$content = $text_html . $categories_html;
+							} else {
+								$content = $text_html;
+							}
+							$namespaceNames = $wgContLang->getNamespaces();
+							$wgOut->addHTML(
+								'<div id="helpCommons" style="border: solid 1px; padding: 10px; margin: 5px;">' .
+								'<div class="helpCommonsInfo" style="text-align: right; font-size: smaller;padding: 5px;">' .
+								wfMsgForContent(
+									'helpcommons-info',
+									$name,
+									'<a href="' . $url . $prefix . '/index.php?title=Help:' . $dbkey . '" title="' . $namespaceNames[NS_HELP] . ':' . str_replace( '_', ' ', $dbkey ) . '">' . $namespaceNames[NS_HELP] . ':' . str_replace( '_', ' ', $dbkey ) . '</a>'
+								) .
+								'</div>' . $content . '</div>'
+							);
+							return false;
+						} else {
+							return true;
+						}
+					}
 				}
 			}
 		}
@@ -157,11 +161,15 @@ function fnHelpCommonsLoad( OutputPage &$helppage, Skin &$skin ) {
  * @return bool
  */
 function fnHelpCommonsRedirectTalks( &$helppage, &$outputDone, &$pcache ) {
-	global $wgHelpCommonsEnableLocalDiscussions, $wgHelpCommonsProtection, $wgHelpCommonsFetchingWikis, $wgLanguageCode, $wgDBname, $wgOut;
+	global $wgHelpCommonsEnableLocalDiscussions, $wgHelpCommonsProtection, $wgHelpCommonsFetchingWikis,
+		$wgLanguageCode, $wgDBname, $wgOut;
 
 	$title = $helppage->getTitle();
 
-	if ( $title->getNamespace() != NS_HELP_TALK || ( $wgHelpCommonsEnableLocalDiscussions && $wgHelpCommonsProtection != 'all' && $wgHelpCommonsProtection != 'existing' ) ) {
+	if (
+		$title->getNamespace() != NS_HELP_TALK ||
+		( $wgHelpCommonsEnableLocalDiscussions && $wgHelpCommonsProtection != 'all' && $wgHelpCommonsProtection != 'existing' )
+	) {
 		return true;
 	}
 
@@ -171,49 +179,40 @@ function fnHelpCommonsRedirectTalks( &$helppage, &$outputDone, &$pcache ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
 				foreach ( $helpWikiPrefixes as $helpWikiPrefix => $name ) {
-					if ( $wgLanguageCode == $language ) {
-
-						if ( $db != 'no-database' ) {
-							if ( $wgDBname == $db ) {
-								return true;
-							}
-						}
-
-						if ( $helpWikiPrefix != 'no-prefix' ) {
-							$prefix = '/' . $helpWikiPrefix;
-						} else {
-							$prefix = '';
-						}
-
-						// check if requested page does exist
-						$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $dbkey );
-						$apiData = unserialize( $apiResponse );
-
-						if ( !$apiResponse ) {
-							return true;
-						}
-
-						if ( !$apiData ) {
-							return true;
-						}
-
-						if ( !$apiData['query'] ) {
-							return true;
-						}
-
-						// check if page does exist
-						foreach( $apiData['query']['pages'] as $pageId => $pageData ) {
-							if ( !isset( $pageData['missing'] ) && !$title->exists() ) {
-								$helpCommonsRedirectTalk = $url . $prefix . '/index.php?title=Help_talk:' . $dbkey;
-								$wgOut->redirect( $helpCommonsRedirectTalk );
-								return false;
-							} else {
-								return true;
-							}
-						}
-
+					if ( $wgLanguageCode != $language ) {
+						continue;
 					}
 
+					if ( $db != 'no-database' && $wgDBname == $db ) {
+						return true;
+					}
+
+					if ( $helpWikiPrefix != 'no-prefix' ) {
+						$prefix = '/' . $helpWikiPrefix;
+					} else {
+						$prefix = '';
+					}
+
+					// check if requested page does exist
+					$apiResponse = Http::get(
+						$url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $dbkey
+					);
+					$apiData = unserialize( $apiResponse );
+
+					if ( !$apiResponse || !$apiData || !$apiData['query'] ) {
+						return true;
+					}
+
+					// check if page does exist
+					foreach( $apiData['query']['pages'] as $pageId => $pageData ) {
+						if ( !isset( $pageData['missing'] ) && !$title->exists() ) {
+							$helpCommonsRedirectTalk = $url . $prefix . '/index.php?title=Help_talk:' . $dbkey;
+							$wgOut->redirect( $helpCommonsRedirectTalk );
+							return false;
+						} else {
+							return true;
+						}
+					}
 				}
 			}
 		}
@@ -228,9 +227,13 @@ function fnHelpCommonsRedirectTalks( &$helppage, &$outputDone, &$pcache ) {
  * @return bool
  */
 function fnHelpCommonsInsertTalkpageTab( $talkpage, &$content_actions ) {
-	global $wgHelpCommonsEnableLocalDiscussions, $wgHelpCommonsProtection, $wgHelpCommonsFetchingWikis, $wgLanguageCode, $wgDBname, $wgUser;
+	global $wgHelpCommonsEnableLocalDiscussions, $wgHelpCommonsProtection, $wgHelpCommonsFetchingWikis,
+		$wgLanguageCode, $wgDBname, $wgUser;
 
-	if ( ( $talkpage->getTitle()->getNamespace() != NS_HELP && $talkpage->getTitle()->getNamespace() != NS_HELP_TALK ) || !$wgHelpCommonsEnableLocalDiscussions || $wgHelpCommonsProtection == 'all' || $wgHelpCommonsProtection == 'existing' ) {
+	if (
+		( $talkpage->getTitle()->getNamespace() != NS_HELP && $talkpage->getTitle()->getNamespace() != NS_HELP_TALK ) ||
+		!$wgHelpCommonsEnableLocalDiscussions || $wgHelpCommonsProtection == 'all' || $wgHelpCommonsProtection == 'existing'
+	) {
 		return false;
 	}
 
@@ -238,68 +241,58 @@ function fnHelpCommonsInsertTalkpageTab( $talkpage, &$content_actions ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
 				foreach ( $helpWikiPrefixes as $helpWikiPrefix => $name ) {
-					if ( $wgLanguageCode == $language ) {
+					if ( $wgLanguageCode != $language ) {
+						continue;
+					}
 
-						if ( $db != 'no-database' ) {
-							if ( $wgDBname == $db ) {
-								return false;
+					if ( $db != 'no-database' && $wgDBname == $db ) {
+						return false;
+					}
+
+					if ( $helpWikiPrefix != 'no-prefix' ) {
+						$prefix = '/' . $helpWikiPrefix;
+					} else {
+						$prefix = '';
+					}
+
+					// check if requested page does exist
+					$apiResponse = Http::get(
+						$url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $talkpage->getTitle()->getDBkey()
+					);
+					$apiData = unserialize( $apiResponse );
+
+					if ( !$apiResponse || !$apiData || !$apiData['query'] ) {
+						return false;
+					}
+
+					// check if page does exist
+					foreach( $apiData['query']['pages'] as $pageId => $pageData ) {
+						if ( !isset( $pageData['missing'] ) ) {
+
+							$tab_keys = array_keys( $content_actions );
+
+							// find the location of the 'talk' link, and
+							// add the link to 'Discuss on help wiki' right before it
+							$helpcommons_tab_talk = array(
+								'class' => false,
+								'text' => wfMsg( 'helpcommons-discussion' ),
+								'href' => $url.$prefix.'/index.php?title=Help_talk:'.$talkpage->getTitle()->getDBkey(),
+							);
+
+							$tab_values = array_values( $content_actions );
+							if ( $wgUser->getSkin()->getSkinName() == 'vector' ) {
+								$tabs_location = array_search( 'help_talk', $tab_keys );
+							} else {
+								$tabs_location = array_search( 'talk', $tab_keys );
+							}
+							array_splice( $tab_keys, $tabs_location, 0, 'talk-helpwiki' );
+							array_splice( $tab_values, $tabs_location, 0, array( $helpcommons_tab_talk ) );
+
+							$content_actions = array();
+							for ( $i = 0; $i < count( $tab_keys ); $i++ ) {
+								$content_actions[$tab_keys[$i]] = $tab_values[$i];
 							}
 						}
-
-						if ( $helpWikiPrefix != 'no-prefix' ) {
-							$prefix = '/' . $helpWikiPrefix;
-						} else {
-							$prefix = '';
-						}
-
-
-						// check if requested page does exist
-						$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $talkpage->getTitle()->getDBkey() );
-						$apiData = unserialize( $apiResponse );
-
-						if ( !$apiResponse ) {
-							return false;
-						}
-
-						if ( !$apiData ) {
-							return false;
-						}
-
-						if ( !$apiData['query'] ) {
-							return false;
-						}
-
-						// check if page does exist
-						foreach( $apiData['query']['pages'] as $pageId => $pageData ) {
-							if ( !isset( $pageData['missing'] ) ) {
-
-								$tab_keys = array_keys( $content_actions );
-
-								// find the location of the 'talk' link, and
-								// add the link to 'Discuss on help wiki' right before it
-								$helpcommons_tab_talk = array(
-									'class' => false,
-									'text' => wfMsg( 'helpcommons-discussion' ),
-									'href' => $url.$prefix.'/index.php?title=Help_talk:'.$talkpage->getTitle()->getDBkey(),
-								);
-
-								$tab_values = array_values( $content_actions );
-								if ( $wgUser->getSkin()->getSkinName() == 'vector' ) {
-									$tabs_location = array_search( 'help_talk', $tab_keys );
-								} else {
-									$tabs_location = array_search( 'talk', $tab_keys );
-								}
-								array_splice( $tab_keys, $tabs_location, 0, 'talk-helpwiki' );
-								array_splice( $tab_values, $tabs_location, 0, array( $helpcommons_tab_talk ) );
-
-								$content_actions = array();
-								for ( $i = 0; $i < count( $tab_keys ); $i++ ) {
-									$content_actions[$tab_keys[$i]] = $tab_values[$i];
-								}
-
-							}
-						}
-
 					}
 				}
 			}
@@ -325,138 +318,125 @@ function fnHelpCommonsInsertActionTab( $action, &$content_actions ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
 				foreach ( $helpWikiPrefixes as $helpWikiPrefix => $name ) {
-					if ( $wgLanguageCode == $language ) {
+					if ( $wgLanguageCode != $language ) {
+						continue;
+					}
 
-						if ( $db != 'no-database' ) {
-							if ( $wgDBname == $db ) {
-								return false;
-							}
-						}
+					if ( $db != 'no-database' && $wgDBname == $db ) {
+						return false;
+					}
 
-						if ( $helpWikiPrefix != 'no-prefix' ) {
-							$prefix = '/' . $helpWikiPrefix;
-						} else {
-							$prefix = '';
-						}
+					if ( $helpWikiPrefix != 'no-prefix' ) {
+						$prefix = '/' . $helpWikiPrefix;
+					} else {
+						$prefix = '';
+					}
 
+					// check if requested page does exist
+					$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $action->getTitle()->getDBkey() );
+					$apiData = unserialize( $apiResponse );
 
-						// check if requested page does exist
-						$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $action->getTitle()->getDBkey() );
-						$apiData = unserialize( $apiResponse );
+					if ( !$apiResponse || !$apiData || !$apiData['query'] ) {
+						return false;
+					}
 
-						if ( !$apiResponse ) {
-							return false;
-						}
+					// check if page does exist
+					foreach( $apiData['query']['pages'] as $pageId => $pageData ) {
+						if ( !isset( $pageData['missing'] ) ) {
 
-						if ( !$apiData ) {
-							return false;
-						}
+							$tab_keys = array_keys( $content_actions );
 
-						if ( !$apiData['query'] ) {
-							return false;
-						}
+							// find the location of the 'edit' link or the 'watch' icon of vector, and
+							// add the link to 'Edit on help wiki' right before it
+							if ( array_search( 'edit', $tab_keys ) || array_search( 'watch', $tab_keys ) ) {
 
-						// check if page does exist
-						foreach( $apiData['query']['pages'] as $pageId => $pageData ) {
-							if ( !isset( $pageData['missing'] ) ) {
+								$helpcommons_tab_edit = array(
+									'class' => false,
+									'text' => wfMsg( 'helpcommons-edit' ),
+									'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
+								);
 
-								$tab_keys = array_keys( $content_actions );
-
-								// find the location of the 'edit' link or the 'watch' icon of vector, and
-								// add the link to 'Edit on help wiki' right before it
-								if ( array_search( 'edit', $tab_keys ) || array_search( 'watch', $tab_keys ) ) {
-
-									$helpcommons_tab_edit = array(
-										'class' => false,
-										'text' => wfMsg( 'helpcommons-edit' ),
-										'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
-									);
-
-									$tab_values = array_values( $content_actions );
-									if ( $wgUser->getSkin()->getSkinName() == 'vector' && $wgVectorUseIconWatch && !$action->getTitle()->exists() ) {
-										$tabs_location = array_search( 'watch', $tab_keys );
-									} else {
-										$tabs_location = array_search( 'edit', $tab_keys );
-									}
-									array_splice( $tab_keys, $tabs_location, 0, 'edit-on-helpwiki' );
-									array_splice( $tab_values, $tabs_location, 0, array( $helpcommons_tab_edit ) );
-
-									$content_actions = array();
-									for ( $i = 0; $i < count( $tab_keys ); $i++ ) {
-										$content_actions[$tab_keys[$i]] = $tab_values[$i];
-									}
-
-								// find the location of the 'viewsource' link, and
-								// add the link to 'Edit on help wiki' right before it
-								} elseif ( array_search( 'viewsource', $tab_keys ) ) {
-
-									$helpcommons_tab_edit = array(
-										'class' => false,
-										'text' => wfMsg( 'helpcommons-edit' ),
-										'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
-									);
-
-									$tab_values = array_values( $content_actions );
-									$tabs_location = array_search( 'viewsource', $tab_keys );
-									array_splice( $tab_keys, $tabs_location, 0, 'edit-on-helpwiki' );
-									array_splice( $tab_values, $tabs_location, 0, array( $helpcommons_tab_edit ) );
-
-									$content_actions = array();
-									for ( $i = 0; $i < count( $tab_keys ); $i++ ) {
-										$content_actions[$tab_keys[$i]] = $tab_values[$i];
-									}
-
+								$tab_values = array_values( $content_actions );
+								if ( $wgUser->getSkin()->getSkinName() == 'vector' && $wgVectorUseIconWatch && !$action->getTitle()->exists() ) {
+									$tabs_location = array_search( 'watch', $tab_keys );
 								} else {
+									$tabs_location = array_search( 'edit', $tab_keys );
+								}
+								array_splice( $tab_keys, $tabs_location, 0, 'edit-on-helpwiki' );
+								array_splice( $tab_values, $tabs_location, 0, array( $helpcommons_tab_edit ) );
 
-									$content_actions['edit-on-helpwiki'] = array(
-										'class' => false,
-										'text' => wfMsg( 'helpcommons-edit' ),
-										'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
-									);
+								$content_actions = array();
+								for ( $i = 0; $i < count( $tab_keys ); $i++ ) {
+									$content_actions[$tab_keys[$i]] = $tab_values[$i];
+								}
 
+							// find the location of the 'viewsource' link, and
+							// add the link to 'Edit on help wiki' right before it
+							} elseif ( array_search( 'viewsource', $tab_keys ) ) {
+
+								$helpcommons_tab_edit = array(
+									'class' => false,
+									'text' => wfMsg( 'helpcommons-edit' ),
+									'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
+								);
+
+								$tab_values = array_values( $content_actions );
+								$tabs_location = array_search( 'viewsource', $tab_keys );
+								array_splice( $tab_keys, $tabs_location, 0, 'edit-on-helpwiki' );
+								array_splice( $tab_values, $tabs_location, 0, array( $helpcommons_tab_edit ) );
+
+								$content_actions = array();
+								for ( $i = 0; $i < count( $tab_keys ); $i++ ) {
+									$content_actions[$tab_keys[$i]] = $tab_values[$i];
 								}
 
 							} else {
 
-								$tab_keys = array_keys( $content_actions );
-
-								// find the location of the 'edit' link or the 'watch' icon of vector, and
-								// add the link to 'Edit on help wiki' right before it
-								if ( array_search( 'edit', $tab_keys ) || array_search( 'watch', $tab_keys ) ) {
-
-									$helpcommons_tab_create = array(
-										'class' => false,
-										'text' => wfMsg( 'helpcommons-create' ),
-										'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
-									);
-
-									$tab_values = array_values( $content_actions );
-									if ( $wgUser->getSkin()->getSkinName() == 'vector' && $wgVectorUseIconWatch && !$action->getTitle()->exists() ) {
-										$tabs_location = array_search( 'watch', $tab_keys );
-									} else {
-										$tabs_location = array_search( 'edit', $tab_keys );
-									}
-									array_splice( $tab_keys, $tabs_location, 0, 'create-on-helpwiki' );
-									array_splice( $tab_values, $tabs_location, 0, array( $helpcommons_tab_create ) );
-
-									$content_actions = array();
-									for ( $i = 0; $i < count( $tab_keys ); $i++ ) {
-										$content_actions[$tab_keys[$i]] = $tab_values[$i];
-									}
-
-								} else {
-
-									$content_actions['create-on-helpwiki'] = array(
-										'class' => false,
-										'text' => wfMsg( 'helpcommons-create' ),
-										'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
-									);
-
-								}
+								$content_actions['edit-on-helpwiki'] = array(
+									'class' => false,
+									'text' => wfMsg( 'helpcommons-edit' ),
+									'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
+								);
 
 							}
-						}
 
+						} else {
+
+							$tab_keys = array_keys( $content_actions );
+
+							// find the location of the 'edit' link or the 'watch' icon of vector, and
+							// add the link to 'Edit on help wiki' right before it
+							if ( array_search( 'edit', $tab_keys ) || array_search( 'watch', $tab_keys ) ) {
+
+								$helpcommons_tab_create = array(
+									'class' => false,
+									'text' => wfMsg( 'helpcommons-create' ),
+									'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
+								);
+
+								$tab_values = array_values( $content_actions );
+								if ( $wgUser->getSkin()->getSkinName() == 'vector' && $wgVectorUseIconWatch && !$action->getTitle()->exists() ) {
+									$tabs_location = array_search( 'watch', $tab_keys );
+								} else {
+									$tabs_location = array_search( 'edit', $tab_keys );
+								}
+								array_splice( $tab_keys, $tabs_location, 0, 'create-on-helpwiki' );
+								array_splice( $tab_values, $tabs_location, 0, array( $helpcommons_tab_create ) );
+
+								$content_actions = array();
+								for ( $i = 0; $i < count( $tab_keys ); $i++ ) {
+									$content_actions[$tab_keys[$i]] = $tab_values[$i];
+								}
+
+							} else {
+
+								$content_actions['create-on-helpwiki'] = array(
+									'class' => false,
+									'text' => wfMsg( 'helpcommons-create' ),
+									'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
+								);
+							}
+						}
 					}
 				}
 			}
@@ -504,84 +484,73 @@ function fnHelpCommonsProtection( &$title, &$user, $action, &$result ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
 				foreach ( $helpWikiPrefixes as $helpWikiPrefix => $name ) {
-					if ( $wgLanguageCode == $language ) {
+					if ( $wgLanguageCode != $language ) {
+						continue;
+					}
 
-						if ( $db != 'no-database' ) {
-							if ( $wgDBname == $db ) {
-								return true;
-							}
-						}
+					if ( $db != 'no-database' && $wgDBname == $db ) {
+						return true;
+					}
 
-						if ( $helpWikiPrefix != 'no-prefix' ) {
-							$prefix = '/' . $helpWikiPrefix;
-						} else {
-							$prefix = '';
-						}
+					if ( $helpWikiPrefix != 'no-prefix' ) {
+						$prefix = '/' . $helpWikiPrefix;
+					} else {
+						$prefix = '';
+					}
 
-						$ns = $title->getNamespace();
+					$ns = $title->getNamespace();
 
-						// don't protect existing pages
-						if ( $title->exists() ) {
-							return true;
-						}
+					// don't protect existing pages
+					if ( $title->exists() ) {
+						return true;
+					}
 
-						// block actions 'create', 'edit' and 'protect'
-						if ( $action != 'create' && $action != 'edit' && $action != 'protect' ) {
-							return true;
-						}
+					// block actions 'create', 'edit' and 'protect'
+					if ( $action != 'create' && $action != 'edit' && $action != 'protect' ) {
+						return true;
+					}
 
-						if ( !$wgHelpCommonsEnableLocalDiscussions && $ns == NS_HELP_TALK ) {
-							// error message if action is blocked
-							$result = array( 'protectedpagetext' );
-							// bail, and stop the request
-							return false;
-						}
+					if ( !$wgHelpCommonsEnableLocalDiscussions && $ns == NS_HELP_TALK ) {
+						// error message if action is blocked
+						$result = array( 'protectedpagetext' );
+						// bail, and stop the request
+						return false;
+					}
 
-						switch ( $wgHelpCommonsProtection ) {
+					switch ( $wgHelpCommonsProtection ) {
 
-							case 'all':
-								if ( $ns == NS_HELP || $ns == NS_HELP_TALK ) {
+						case 'all':
+							if ( $ns == NS_HELP || $ns == NS_HELP_TALK ) {
 								// error message if action is blocked
 								$result = array( 'protectedpagetext' );
 								// bail, and stop the request
 								return false;
-								}
+							}
 							break;
 
-							case 'existing':
-								// check if requested page does exist
-								$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $title->getDBkey() );
-								$apiData = unserialize( $apiResponse );
+						case 'existing':
+							// check if requested page does exist
+							$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $title->getDBkey() );
+							$apiData = unserialize( $apiResponse );
 
-								if ( !$apiResponse ) {
-									return true;
-								}
+							if ( !$apiResponse || !$apiData || !$apiData['query'] ) {
+								return true;
+							}
 
-								if ( !$apiData ) {
-									return true;
+							// check if page does exist
+							foreach( $apiData['query']['pages'] as $pageId => $pageData ) {
+								if ( !isset( $pageData['missing'] ) && ( $ns == NS_HELP || $ns == NS_HELP_TALK ) ) {
+									// error message if action is blocked
+									$result = array( 'protectedpagetext' );
+									// bail, and stop the request
+									return false;
 								}
-
-								if ( !$apiData['query'] ) {
-									return true;
-								}
-
-								// check if page does exist
-								foreach( $apiData['query']['pages'] as $pageId => $pageData ) {
-									if ( !isset( $pageData['missing'] ) && ( $ns == NS_HELP || $ns == NS_HELP_TALK ) ) {
-										// error message if action is blocked
-										$result = array( 'protectedpagetext' );
-										// bail, and stop the request
-										return false;
-									}
-								}
+							}
 							break;
 
-							default:
+						default:
 							return true;
-						}
-
 					}
-
 				}
 			}
 		}
@@ -620,53 +589,44 @@ function fnHelpCommonsMakeBlueLinks( $skin, $target, &$text, &$customAttribs, &$
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
 				foreach ( $helpWikiPrefixes as $helpWikiPrefix => $name ) {
 					if ( $wgLanguageCode == $language ) {
-
-						if ( $db != 'no-database' ) {
-							if ( $wgDBname == $db ) {
-								return true;
-							}
-						}
-
-						if ( $helpWikiPrefix != 'no-prefix' ) {
-							$prefix = '/' . $helpWikiPrefix;
-						} else {
-							$prefix = '';
-						}
-
-						// check if requested page does exist
-						$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $target->getDBkey() );
-						$apiData = unserialize( $apiResponse );
-
-						if ( !$apiResponse ) {
-							return true;
-						}
-
-						if ( !$apiData ) {
-							return true;
-						}
-
-						if ( !$apiData['query'] ) {
-							return true;
-						}
-
-						// check if page does exist
-						foreach( $apiData['query']['pages'] as $pageId => $pageData ) {
-							if ( !isset( $pageData['missing'] ) ) {
-
-								// remove "broken" assumption/override
-								$brokenKey = array_search( 'broken', $options );
-								if ( $brokenKey !== false ) {
-									unset( $options[$brokenKey] );
-								}
-
-								// make the link "blue"
-								$options[] = 'known';
-
-							}
-						}
-
+						continue;
 					}
 
+					if ( $db != 'no-database' && $wgDBname == $db ) {
+						return true;
+					}
+
+					if ( $helpWikiPrefix != 'no-prefix' ) {
+						$prefix = '/' . $helpWikiPrefix;
+					} else {
+						$prefix = '';
+					}
+
+					// check if requested page does exist
+					$apiResponse = Http::get(
+						$url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $target->getDBkey()
+					);
+					$apiData = unserialize( $apiResponse );
+
+					if ( !$apiResponse || !$apiData || !$apiData['query'] ) {
+						return true;
+					}
+
+					// check if page does exist
+					foreach( $apiData['query']['pages'] as $pageId => $pageData ) {
+						if ( !isset( $pageData['missing'] ) ) {
+
+							// remove "broken" assumption/override
+							$brokenKey = array_search( 'broken', $options );
+							if ( $brokenKey !== false ) {
+								unset( $options[$brokenKey] );
+							}
+
+							// make the link "blue"
+							$options[] = 'known';
+
+						}
+					}
 				}
 			}
 		}
@@ -686,47 +646,32 @@ function fnHelpCommonsPageIsKnown( $page ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
 				foreach ( $helpWikiPrefixes as $helpWikiPrefix => $name ) {
-					if ( $wgLanguageCode == $language ) {
-
-						if ( $db != 'no-database' ) {
-							if ( $wgDBname == $db ) {
-								return false;
-							}
-						}
-
-						if ( $helpWikiPrefix != 'no-prefix' ) {
-							$prefix = '/' . $helpWikiPrefix;
-						} else {
-							$prefix = '';
-						}
-
-						// check if requested page does exist
-						$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $page->getDBkey() );
-						$apiData = unserialize( $apiResponse );
-
-						if ( !$apiResponse ) {
-							return false;
-						}
-
-						if ( !$apiData ) {
-							return false;
-						}
-
-						if ( !$apiData['query'] ) {
-							return false;
-						}
-
-						// check if page does exist
-						foreach( $apiData['query']['pages'] as $pageId => $pageData ) {
-							if ( !isset( $pageData['missing'] ) ) {
-								return true;
-							} else {
-								return false;
-							}
-						}
-
+					if ( $wgLanguageCode != $language ) {
+						continue;
 					}
 
+					if ( $db != 'no-database' && $wgDBname == $db ) {
+						return false;
+					}
+
+					if ( $helpWikiPrefix != 'no-prefix' ) {
+						$prefix = '/' . $helpWikiPrefix;
+					} else {
+						$prefix = '';
+					}
+
+					// check if requested page does exist
+					$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $page->getDBkey() );
+					$apiData = unserialize( $apiResponse );
+
+					if ( !$apiResponse || !$apiData || !$apiData['query'] ) {
+						return false;
+					}
+
+					// check if page does exist
+					foreach( $apiData['query']['pages'] as $pageId => $pageData ) {
+						return !isset( $pageData['missing'] );
+					}
 				}
 			}
 		}
@@ -750,65 +695,42 @@ function fnHelpCommonsTalkIsKnown( $talk ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
 				foreach ( $helpWikiPrefixes as $helpWikiPrefix => $name ) {
-					if ( $wgLanguageCode == $language ) {
-
-						if ( $db != 'no-database' ) {
-							if ( $wgDBname == $db ) {
-								return false;
-							}
-						}
-
-						if ( $helpWikiPrefix != 'no-prefix' ) {
-							$prefix = '/' . $helpWikiPrefix;
-						} else {
-							$prefix = '';
-						}
-
-						// check if requested page does exist
-						$apiPageResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $talk->getDBkey() );
-						$apiPageData = unserialize( $apiPageResponse );
-
-						if ( !$apiPageResponse ) {
-							return false;
-						}
-
-						if ( !$apiPageData ) {
-							return false;
-						}
-
-						if ( !$apiPageData['query'] ) {
-							return false;
-						}
-
-						// check if requested talkpage does exist
-						$apiTalkResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help_talk:' . $talk->getDBkey() );
-						$apiTalkData = unserialize( $apiTalkResponse );
-
-						if ( !$apiTalkResponse ) {
-							return false;
-						}
-
-						if ( !$apiTalkData ) {
-							return false;
-						}
-
-						if ( !$apiTalkData['query'] ) {
-							return false;
-						}
-
-						// check if page and its talk do exist
-						foreach( $apiPageData['query']['pages'] as $pageId => $pageData ) {
-							foreach( $apiTalkData['query']['pages'] as $talkId => $talkData ) {
-								if ( !isset( $pageData['missing'] ) && !isset( $talkData['missing'] ) ) {
-									return true;
-								} else {
-									return false;
-								}
-							}
-						}
-
+					if ( $wgLanguageCode != $language ) {
+						continue;
 					}
 
+					if ( $db != 'no-database' && $wgDBname == $db ) {
+						return false;
+					}
+
+					if ( $helpWikiPrefix != 'no-prefix' ) {
+						$prefix = '/' . $helpWikiPrefix;
+					} else {
+						$prefix = '';
+					}
+
+					// check if requested page does exist
+					$apiPageResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $talk->getDBkey() );
+					$apiPageData = unserialize( $apiPageResponse );
+
+					if ( !$apiResponse || !$apiData || !$apiData['query'] ) {
+						return false;
+					}
+
+					// check if requested talkpage does exist
+					$apiTalkResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help_talk:' . $talk->getDBkey() );
+					$apiTalkData = unserialize( $apiTalkResponse );
+
+					if ( !$apiTalkResponse || !$apiTalkData || !$apiTalkData['query'] ) {
+						return false;
+					}
+
+					// check if page and its talk do exist
+					foreach( $apiPageData['query']['pages'] as $pageId => $pageData ) {
+						foreach( $apiTalkData['query']['pages'] as $talkId => $talkData ) {
+							return !isset( $pageData['missing'] ) && !isset( $talkData['missing'] );
+						}
+					}
 				}
 			}
 		}
