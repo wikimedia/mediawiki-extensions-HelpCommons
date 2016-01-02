@@ -51,24 +51,14 @@ $wgHelpCommonsShowCategories = true;
 // $wgHelpCommonsProtection = 'all'; => every help page and every help page discussion
 $wgHelpCommonsProtection = false;
 
-// Hooks
-$wgHooks['BeforePageDisplay'][] = 'fnHelpCommonsLoad';
-$wgHooks['ArticleViewHeader'][] = 'fnHelpCommonsRedirectTalks';
-$wgHooks['SkinTemplateTabs'][] = 'fnHelpCommonsInsertTabs';
-$wgHooks['SkinTemplateNavigation'][] = 'fnHelpCommonsInsertTabsVector';
-$wgHooks['getUserPermissionsErrors'][] = 'fnHelpCommonsProtection';
-// This hook is not needed when 'TitleHelpCommonsPageIsKnown' and 'TitleHelpCommonsTalkIsKnown' hooks are used but it does not need to be removed
-$wgHooks['LinkBegin'][] = 'fnHelpCommonsMakeBlueLinks';
 // HelpCommons' hooks included in Title.php
 // Please see https://www.mediawiki.org/wiki/Extension:HelpCommons to include these hooks
-$wgHooks['TitleHelpCommonsPageIsKnown'][] = 'fnHelpCommonsPageIsKnown';
-$wgHooks['TitleHelpCommonsTalkIsKnown'][] = 'fnHelpCommonsTalkIsKnown';
 
 /**
  * @param $helppage Article
  * @return bool
  */
-function fnHelpCommonsLoad( OutputPage &$helppage, Skin &$skin ) {
+$wgHooks['BeforePageDisplay'][] = function ( OutputPage &$helppage, Skin &$skin ) {
 	global $wgRequest, $wgHelpCommonsFetchingWikis,
 		$wgDBname, $wgLanguageCode, $wgOut, $wgHelpCommonsShowCategories, $wgContLang;
 
@@ -153,14 +143,14 @@ function fnHelpCommonsLoad( OutputPage &$helppage, Skin &$skin ) {
 	}
 
 	return true;
-}
+};
 
 /**
  * @param $helppage
  * @param $fields
  * @return bool
  */
-function fnHelpCommonsRedirectTalks( &$helppage, &$outputDone, &$pcache ) {
+$wgHooks['ArticleViewHeader'][] = function ( &$helppage, &$outputDone, &$pcache ) {
 	global $wgHelpCommonsEnableLocalDiscussions, $wgHelpCommonsProtection, $wgHelpCommonsFetchingWikis,
 		$wgLanguageCode, $wgDBname, $wgOut;
 
@@ -219,19 +209,19 @@ function fnHelpCommonsRedirectTalks( &$helppage, &$outputDone, &$pcache ) {
 	}
 
 	return true;
-}
+};
 
 /**
- * @param $talkpage Title
- * @param $content_actions
+ * @param $skin Skin|SkinTemplate
+ * @param $content_actions array
  * @return bool
  */
-function fnHelpCommonsInsertTalkpageTab( $talkpage, &$content_actions ) {
+function fnHelpCommonsInsertTalkpageTab( $skin, &$content_actions ) {
 	global $wgHelpCommonsEnableLocalDiscussions, $wgHelpCommonsProtection, $wgHelpCommonsFetchingWikis,
-		$wgLanguageCode, $wgDBname, $wgUser;
+		$wgLanguageCode, $wgDBname;
 
 	if (
-		( $talkpage->getTitle()->getNamespace() != NS_HELP && $talkpage->getTitle()->getNamespace() != NS_HELP_TALK ) ||
+		( $skin->getTitle()->getNamespace() != NS_HELP && $skin->getTitle()->getNamespace() != NS_HELP_TALK ) ||
 		!$wgHelpCommonsEnableLocalDiscussions || $wgHelpCommonsProtection == 'all' || $wgHelpCommonsProtection == 'existing'
 	) {
 		return false;
@@ -257,7 +247,7 @@ function fnHelpCommonsInsertTalkpageTab( $talkpage, &$content_actions ) {
 
 					// check if requested page does exist
 					$apiResponse = Http::get(
-						$url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $talkpage->getTitle()->getDBkey()
+						$url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $skin->getTitle()->getDBkey()
 					);
 					$apiData = unserialize( $apiResponse );
 
@@ -276,11 +266,11 @@ function fnHelpCommonsInsertTalkpageTab( $talkpage, &$content_actions ) {
 							$helpcommons_tab_talk = array(
 								'class' => false,
 								'text' => wfMsg( 'helpcommons-discussion' ),
-								'href' => $url.$prefix.'/index.php?title=Help_talk:'.$talkpage->getTitle()->getDBkey(),
+								'href' => $url.$prefix.'/index.php?title=Help_talk:'.$skin->getTitle()->getDBkey(),
 							);
 
 							$tab_values = array_values( $content_actions );
-							if ( $wgUser->getSkin()->getSkinName() == 'vector' ) {
+							if ( $skin->getSkinName() == 'vector' ) {
 								$tabs_location = array_search( 'help_talk', $tab_keys );
 							} else {
 								$tabs_location = array_search( 'talk', $tab_keys );
@@ -303,14 +293,14 @@ function fnHelpCommonsInsertTalkpageTab( $talkpage, &$content_actions ) {
 }
 
 /**
- * @param $action Title
+ * @param $skin Skin|SkinTemplate
  * @param $content_actions
  * @return bool
  */
-function fnHelpCommonsInsertActionTab( $action, &$content_actions ) {
-	global $wgHelpCommonsFetchingWikis, $wgLanguageCode, $wgDBname, $wgUser, $wgVectorUseIconWatch;
+function fnHelpCommonsInsertActionTab( $skin, &$content_actions ) {
+	global $wgHelpCommonsFetchingWikis, $wgLanguageCode, $wgDBname, $wgVectorUseIconWatch;
 
-	if ( $action->getTitle()->getNamespace() != NS_HELP ) {
+	if ( $skin->getTitle()->getNamespace() != NS_HELP ) {
 		return false;
 	}
 
@@ -333,7 +323,7 @@ function fnHelpCommonsInsertActionTab( $action, &$content_actions ) {
 					}
 
 					// check if requested page does exist
-					$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $action->getTitle()->getDBkey() );
+					$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $skin->getTitle()->getDBkey() );
 					$apiData = unserialize( $apiResponse );
 
 					if ( !$apiResponse || !$apiData || !$apiData['query'] ) {
@@ -353,11 +343,11 @@ function fnHelpCommonsInsertActionTab( $action, &$content_actions ) {
 								$helpcommons_tab_edit = array(
 									'class' => false,
 									'text' => wfMsg( 'helpcommons-edit' ),
-									'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
+									'href' => $url.$prefix.'/index.php?title=Help:'.$skin->getTitle()->getDBkey().'&action=edit',
 								);
 
 								$tab_values = array_values( $content_actions );
-								if ( $wgUser->getSkin()->getSkinName() == 'vector' && $wgVectorUseIconWatch && !$action->getTitle()->exists() ) {
+								if ( $skin->getSkinName() == 'vector' && $wgVectorUseIconWatch && !$skin->getTitle()->exists() ) {
 									$tabs_location = array_search( 'watch', $tab_keys );
 								} else {
 									$tabs_location = array_search( 'edit', $tab_keys );
@@ -377,7 +367,7 @@ function fnHelpCommonsInsertActionTab( $action, &$content_actions ) {
 								$helpcommons_tab_edit = array(
 									'class' => false,
 									'text' => wfMsg( 'helpcommons-edit' ),
-									'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
+									'href' => $url.$prefix.'/index.php?title=Help:'.$skin->getTitle()->getDBkey().'&action=edit',
 								);
 
 								$tab_values = array_values( $content_actions );
@@ -395,7 +385,7 @@ function fnHelpCommonsInsertActionTab( $action, &$content_actions ) {
 								$content_actions['edit-on-helpwiki'] = array(
 									'class' => false,
 									'text' => wfMsg( 'helpcommons-edit' ),
-									'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
+									'href' => $url.$prefix.'/index.php?title=Help:'.$skin->getTitle()->getDBkey().'&action=edit',
 								);
 
 							}
@@ -411,11 +401,11 @@ function fnHelpCommonsInsertActionTab( $action, &$content_actions ) {
 								$helpcommons_tab_create = array(
 									'class' => false,
 									'text' => wfMsg( 'helpcommons-create' ),
-									'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
+									'href' => $url.$prefix.'/index.php?title=Help:'.$skin->getTitle()->getDBkey().'&action=edit',
 								);
 
 								$tab_values = array_values( $content_actions );
-								if ( $wgUser->getSkin()->getSkinName() == 'vector' && $wgVectorUseIconWatch && !$action->getTitle()->exists() ) {
+								if ( $skin->getSkinName() == 'vector' && $wgVectorUseIconWatch && !$skin->getTitle()->exists() ) {
 									$tabs_location = array_search( 'watch', $tab_keys );
 								} else {
 									$tabs_location = array_search( 'edit', $tab_keys );
@@ -433,7 +423,7 @@ function fnHelpCommonsInsertActionTab( $action, &$content_actions ) {
 								$content_actions['create-on-helpwiki'] = array(
 									'class' => false,
 									'text' => wfMsg( 'helpcommons-create' ),
-									'href' => $url.$prefix.'/index.php?title=Help:'.$action->getTitle()->getDBkey().'&action=edit',
+									'href' => $url.$prefix.'/index.php?title=Help:'.$skin->getTitle()->getDBkey().'&action=edit',
 								);
 							}
 						}
@@ -447,28 +437,28 @@ function fnHelpCommonsInsertActionTab( $action, &$content_actions ) {
 }
 
 /**
- * @param $skin Title
- * @param $content_actions
+ * @param $skin Skin
+ * @param $content_actions array
  * @return bool
  */
-function fnHelpCommonsInsertTabs( $skin, &$content_actions ) {
+$wgHooks['SkinTemplateTabs'][] = function ( $skin, &$content_actions ) {
 	fnHelpCommonsInsertTalkpageTab( $skin, $content_actions );
 	fnHelpCommonsInsertActionTab( $skin, $content_actions );
 	return true;
-}
+};
 
 /**
- * @param $sktemplate Title
- * @param $links
+ * @param $sktemplate SkinTemplate
+ * @param $links array
  * @return bool
  */
-function fnHelpCommonsInsertTabsVector( SkinTemplate &$sktemplate, array &$links ) {
+$wgHooks['SkinTemplateNavigation'][] = function ( SkinTemplate &$sktemplate, array &$links ) {
 	// the old '$content_actions' array is thankfully just a
 	// sub-array of this one
 	fnHelpCommonsInsertTalkpageTab( $sktemplate, $links['namespaces'] );
 	fnHelpCommonsInsertActionTab( $sktemplate, $links['views'] );
 	return true;
-}
+};
 
 /**
  * @param $title Title
@@ -477,7 +467,7 @@ function fnHelpCommonsInsertTabsVector( SkinTemplate &$sktemplate, array &$links
  * @param $result
  * @return bool
  */
-function fnHelpCommonsProtection( &$title, &$user, $action, &$result ) {
+$wgHooks['getUserPermissionsErrors'][] = function ( &$title, &$user, $action, &$result ) {
 	global $wgHelpCommonsFetchingWikis, $wgDBname, $wgLanguageCode, $wgHelpCommonsEnableLocalDiscussions, $wgHelpCommonsProtection;
 
 	foreach ( $wgHelpCommonsFetchingWikis as $language => $dbs ) {
@@ -557,9 +547,11 @@ function fnHelpCommonsProtection( &$title, &$user, $action, &$result ) {
 	}
 
 	return true;
-}
+};
 
 /**
+ * This hook is not needed when 'TitleHelpCommonsPageIsKnown' and 'TitleHelpCommonsTalkIsKnown' hooks are used but it does not need to be removed
+ *
  * @param $skin
  * @param $target Title
  * @param $text
@@ -569,7 +561,7 @@ function fnHelpCommonsProtection( &$title, &$user, $action, &$result ) {
  * @param $ret
  * @return bool
  */
-function fnHelpCommonsMakeBlueLinks( $skin, $target, &$text, &$customAttribs, &$query, &$options, &$ret ) {
+$wgHooks['LinkBegin'][] = function ( $skin, $target, &$text, &$customAttribs, &$query, &$options, &$ret ) {
 	global $wgHelpCommonsEnableLocalDiscussions, $wgHelpCommonsFetchingWikis, $wgLanguageCode, $wgDBname;
 
 	if ( is_null( $target ) ) {
@@ -633,13 +625,13 @@ function fnHelpCommonsMakeBlueLinks( $skin, $target, &$text, &$customAttribs, &$
 	}
 
 	return true;
-}
+};
 
 /**
  * @param $page Article
  * @return bool
  */
-function fnHelpCommonsPageIsKnown( $page ) {
+$wgHooks['TitleHelpCommonsPageIsKnown'][] = function ( $page ) {
 	global $wgHelpCommonsFetchingWikis, $wgLanguageCode, $wgDBname;
 
 	foreach ( $wgHelpCommonsFetchingWikis as $language => $dbs ) {
@@ -678,13 +670,13 @@ function fnHelpCommonsPageIsKnown( $page ) {
 	}
 
 	return false;
-}
+};
 
 /**
  * @param $talk Article
  * @return bool
  */
-function fnHelpCommonsTalkIsKnown( $talk ) {
+$wgHooks['TitleHelpCommonsTalkIsKnown'][] = function ( $talk ) {
 	global $wgHelpCommonsEnableLocalDiscussions, $wgHelpCommonsFetchingWikis, $wgLanguageCode, $wgDBname;
 
 	if ( $wgHelpCommonsEnableLocalDiscussions ) {
@@ -737,4 +729,4 @@ function fnHelpCommonsTalkIsKnown( $talk ) {
 	}
 
 	return false;
-}
+};
