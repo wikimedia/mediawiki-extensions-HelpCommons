@@ -713,7 +713,7 @@ function fnHelpCommonsTalkIsKnown( $talk ) {
 					$apiPageResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $talk->getDBkey() );
 					$apiPageData = unserialize( $apiPageResponse );
 
-					if ( !$apiResponse || !$apiData || !$apiData['query'] ) {
+					if ( !$apiPageResponse || !$apiPageData || !$apiPageData['query'] ) {
 						return false;
 					}
 
