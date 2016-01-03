@@ -125,11 +125,12 @@ $wgHooks['BeforePageDisplay'][] = function ( OutputPage &$helppage, Skin &$skin 
 							$wgOut->addHTML(
 								'<div id="helpCommons" style="border: solid 1px; padding: 10px; margin: 5px;">' .
 								'<div class="helpCommonsInfo" style="text-align: right; font-size: smaller;padding: 5px;">' .
-								wfMsgForContent(
+								$helppage->msg(
 									'helpcommons-info',
-									$name,
+									$name
+								)->rawParams(
 									'<a href="' . $url . $prefix . '/index.php?title=Help:' . $dbkey . '" title="' . $namespaceNames[NS_HELP] . ':' . str_replace( '_', ' ', $dbkey ) . '">' . $namespaceNames[NS_HELP] . ':' . str_replace( '_', ' ', $dbkey ) . '</a>'
-								) .
+								)->inContentLanguage()->escaped() .
 								'</div>' . $content . '</div>'
 							);
 							return false;
@@ -265,7 +266,7 @@ function fnHelpCommonsInsertTalkpageTab( $skin, &$content_actions ) {
 							// add the link to 'Discuss on help wiki' right before it
 							$helpcommons_tab_talk = array(
 								'class' => false,
-								'text' => wfMsg( 'helpcommons-discussion' ),
+								'text' => $skin->msg( 'helpcommons-discussion' )->text(),
 								'href' => $url.$prefix.'/index.php?title=Help_talk:'.$skin->getTitle()->getDBkey(),
 							);
 
@@ -342,7 +343,7 @@ function fnHelpCommonsInsertActionTab( $skin, &$content_actions ) {
 
 								$helpcommons_tab_edit = array(
 									'class' => false,
-									'text' => wfMsg( 'helpcommons-edit' ),
+									'text' => $skin->msg( 'helpcommons-edit' )->text(),
 									'href' => $url.$prefix.'/index.php?title=Help:'.$skin->getTitle()->getDBkey().'&action=edit',
 								);
 
@@ -366,7 +367,7 @@ function fnHelpCommonsInsertActionTab( $skin, &$content_actions ) {
 
 								$helpcommons_tab_edit = array(
 									'class' => false,
-									'text' => wfMsg( 'helpcommons-edit' ),
+									'text' => $skin->msg( 'helpcommons-edit' )->text(),
 									'href' => $url.$prefix.'/index.php?title=Help:'.$skin->getTitle()->getDBkey().'&action=edit',
 								);
 
@@ -384,7 +385,7 @@ function fnHelpCommonsInsertActionTab( $skin, &$content_actions ) {
 
 								$content_actions['edit-on-helpwiki'] = array(
 									'class' => false,
-									'text' => wfMsg( 'helpcommons-edit' ),
+									'text' => $skin->msg( 'helpcommons-edit' )->text(),
 									'href' => $url.$prefix.'/index.php?title=Help:'.$skin->getTitle()->getDBkey().'&action=edit',
 								);
 
@@ -400,7 +401,7 @@ function fnHelpCommonsInsertActionTab( $skin, &$content_actions ) {
 
 								$helpcommons_tab_create = array(
 									'class' => false,
-									'text' => wfMsg( 'helpcommons-create' ),
+									'text' => $skin->msg( 'helpcommons-create' )->text(),
 									'href' => $url.$prefix.'/index.php?title=Help:'.$skin->getTitle()->getDBkey().'&action=edit',
 								);
 
@@ -422,7 +423,7 @@ function fnHelpCommonsInsertActionTab( $skin, &$content_actions ) {
 
 								$content_actions['create-on-helpwiki'] = array(
 									'class' => false,
-									'text' => wfMsg( 'helpcommons-create' ),
+									'text' => $skin->msg( 'helpcommons-create' )->text(),
 									'href' => $url.$prefix.'/index.php?title=Help:'.$skin->getTitle()->getDBkey().'&action=edit',
 								);
 							}
