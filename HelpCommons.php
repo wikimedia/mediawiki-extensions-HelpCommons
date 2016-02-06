@@ -610,7 +610,7 @@ $wgHooks['LinkBegin'][] = function ( $skin, $target, &$text, &$customAttribs, &$
 						if ( !isset( $pageData['missing'] ) ) {
 
 							// remove "broken" assumption/override
-							$brokenKey = array_search( 'broken', $options );
+							$brokenKey = array_search( 'broken', $options, true );
 							if ( $brokenKey !== false ) {
 								unset( $options[$brokenKey] );
 							}
