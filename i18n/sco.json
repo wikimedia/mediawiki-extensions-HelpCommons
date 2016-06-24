@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"AmaryllisGardener"
+		]
+	},
+	"helpcommons-desc": "Fetches help pages frae a freemit help wiki an includes them intae this wiki",
+	"helpcommons-create": "Create on Help Wiki",
+	"helpcommons-edit": "Eedit on Help Wiki",
+	"helpcommons-discussion": "Discuss this on Help Wiki",
+	"helpcommons-info": "This content is fetched frae $1. See $2."
+}
