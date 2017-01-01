@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"helpcommons-desc": "Henter hjelpesider fra en ekstern hjelpewiki og inkluderer dem på denne wikien",
+	"helpcommons-create": "Opprett på Help Wiki",
+	"helpcommons-edit": "Rediger på Help Wiki",
+	"helpcommons-discussion": "Diskuter dette på Help Wiki",
+	"helpcommons-info": "Dette innholdet hentes fra $1. Se $2."
+}
