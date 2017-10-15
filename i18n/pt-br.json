@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cainamarques"
+			"Cainamarques",
+			"Eduardo Addad de Oliveira"
 		]
 	},
-	"helpcommons-desc": "Extrai páginas de ajuda de uma wiki externa e as inclui nesta wiki"
+	"helpcommons-desc": "Extrai páginas de ajuda de uma wiki externa e as inclui nesta wiki",
+	"helpcommons-create": "Criar na Wiki de Ajuda",
+	"helpcommons-edit": "Editar na Wiki de Ajuda",
+	"helpcommons-discussion": "Discutir na Wiki de Ajuda",
+	"helpcommons-info": "Este conteúdo foi obtido da wiki $1. Ver $2."
 }
