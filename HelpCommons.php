@@ -29,7 +29,6 @@ $wgExtensionCredits['other'][] = array(
 
 // Internationalization
 $wgMessagesDirs['HelpCommons'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['HelpCommons'] = dirname( __FILE__ ) . '/HelpCommons.i18n.php';
 
 // Help wiki(s) where the help namespace is fetched from
 // You only need to give a database if you use help pages from your own wiki family so help pages are not fetched for help wiki from help wiki
