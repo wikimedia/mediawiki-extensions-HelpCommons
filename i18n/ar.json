@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"ديفيد"
+		]
+	},
+	"helpcommons-desc": "يجلب صفحات مساعدة من ويكي مساعدة خارجي ويضمنها في هذا الويكي",
+	"helpcommons-create": "الإنشاء في ويكي مساعدة",
+	"helpcommons-edit": "التحرير في ويكي مساعدة",
+	"helpcommons-discussion": "ناقش هذا في ويكي مساعدة",
+	"helpcommons-info": "يتم جلب هذا المحتوى من $1; انظر $2."
+}
