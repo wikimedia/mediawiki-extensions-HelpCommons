@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vlad5250"
+		]
+	},
+	"helpcommons-desc": "Dohvaća stranice pomoći iz tog imenskog prostora i uključuje ih u ovaj wiki",
+	"helpcommons-create": "Napravi na Wikiju za pomoć",
+	"helpcommons-edit": "Uredi na Wikiju za pomoć",
+	"helpcommons-discussion": "Prodiskutiraj ovo na Wikiju za pomoć",
+	"helpcommons-info": "Ovi sadržaji preuzeti su iz $1. Vrsta. $2."
+}
