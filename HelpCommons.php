@@ -437,17 +437,6 @@ function fnHelpCommonsInsertActionTab( $skin, &$content_actions ) {
 }
 
 /**
- * @param $skin Skin
- * @param $content_actions array
- * @return bool
- */
-$wgHooks['SkinTemplateTabs'][] = function ( $skin, &$content_actions ) {
-	fnHelpCommonsInsertTalkpageTab( $skin, $content_actions );
-	fnHelpCommonsInsertActionTab( $skin, $content_actions );
-	return true;
-};
-
-/**
  * @param $sktemplate SkinTemplate
  * @param $links array
  * @return bool
