@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Cainamarques",
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Eduardoaddad"
 		]
 	},
 	"helpcommons-desc": "Extrai páginas de ajuda de uma wiki externa e as inclui nesta wiki",
