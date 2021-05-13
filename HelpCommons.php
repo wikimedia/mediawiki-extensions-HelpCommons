@@ -59,7 +59,7 @@ $wgHelpCommonsProtection = false;
  */
 $wgHooks['BeforePageDisplay'][] = function ( OutputPage &$helppage, Skin &$skin ) {
 	global $wgRequest, $wgHelpCommonsFetchingWikis,
-		$wgDBname, $wgLanguageCode, $wgOut, $wgHelpCommonsShowCategories, $wgContLang;
+		$wgDBname, $wgLanguageCode, $wgOut, $wgHelpCommonsShowCategories;
 
 	$title = $helppage->getTitle();
 
@@ -68,6 +68,7 @@ $wgHooks['BeforePageDisplay'][] = function ( OutputPage &$helppage, Skin &$skin 
 		return true;
 	}
 
+	$contentLanguage = \MediaWiki\MediaWikiServices::getInstance()->getContentLanguage();
 	foreach ( $wgHelpCommonsFetchingWikis as $language => $dbs ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
@@ -120,7 +121,7 @@ $wgHooks['BeforePageDisplay'][] = function ( OutputPage &$helppage, Skin &$skin 
 							} else {
 								$content = $text_html;
 							}
-							$namespaceNames = $wgContLang->getNamespaces();
+							$namespaceNames = $contentLanguage->getNamespaces();
 							$wgOut->addHTML(
 								'<div id="helpCommons" style="border: solid 1px; padding: 10px; margin: 5px;">' .
 								'<div class="helpCommonsInfo" style="text-align: right; font-size: smaller;padding: 5px;">' .
