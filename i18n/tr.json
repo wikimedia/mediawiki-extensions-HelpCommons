@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"MuratTheTurkish"
 		]
 	},
 	"helpcommons-desc": "Yardım sayfalarını harici bir yardım vikinden alır ve bu viki içine ekler",
-	"helpcommons-create": "Yardım Wiki'de Oluştur",
-	"helpcommons-edit": "Yardım Wiki’sinde Düzenle",
-	"helpcommons-discussion": "Bunu Yardım Wiki'de tartışın",
-	"helpcommons-info": "Bu içerik $1'den alındı. $2 bakın."
+	"helpcommons-create": "Yardım Vikide Oluştur",
+	"helpcommons-edit": "Yardım Vikide Düzenle",
+	"helpcommons-discussion": "Bunu Yardım Vikide Tartışın",
+	"helpcommons-info": "Bu içerik $1 üzerinden alındı. $2 sayfasına bakın."
 }
