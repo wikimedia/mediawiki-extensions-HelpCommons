@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Daud I.F. Argana"
+		]
+	},
+	"helpcommons-desc": "Mengambil halaman bantuan dari wiki bantuan eksternal lalu menyertakannya ke dalam wiki ini",
+	"helpcommons-create": "Buat di Help Wiki",
+	"helpcommons-edit": "Sunting di Help Wiki",
+	"helpcommons-discussion": "Bicarakan ini di Help Wiki",
+	"helpcommons-info": "Konten ini diambil dari $1. Lihat $2."
+}
