@@ -69,6 +69,7 @@ $wgHooks['BeforePageDisplay'][] = function ( OutputPage &$helppage, Skin &$skin 
 	}
 
 	$contentLanguage = \MediaWiki\MediaWikiServices::getInstance()->getContentLanguage();
+	$httpRequestFactory = \MediaWiki\MediaWikiServices::getInstance()->getHttpRequestFactory();
 	foreach ( $wgHelpCommonsFetchingWikis as $language => $dbs ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
@@ -90,7 +91,7 @@ $wgHooks['BeforePageDisplay'][] = function ( OutputPage &$helppage, Skin &$skin 
 					}
 
 					// check if requested page does exist
-					$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $dbkey );
+					$apiResponse = $httpRequestFactory->get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $dbkey );
 					$apiData = unserialize( $apiResponse );
 
 					if ( !$apiResponse || !$apiData || !$apiData['query'] ) {
@@ -105,7 +106,7 @@ $wgHooks['BeforePageDisplay'][] = function ( OutputPage &$helppage, Skin &$skin 
 								$wgOut->clearHTML();
 							}
 
-							$response = Http::get(
+							$response = $httpRequestFactory->get(
 								$url . $prefix .
 								'/api.php?format=json&action=parse&prop=text|categorieshtml&redirects&disablepp&pst&text={{:Help:'
 								. $dbkey . '}}'
@@ -166,6 +167,7 @@ $wgHooks['ArticleViewHeader'][] = function ( &$helppage, &$outputDone, &$pcache 
 
 	$dbkey = $title->getDBkey();
 
+	$httpRequestFactory = \MediaWiki\MediaWikiServices::getInstance()->getHttpRequestFactory();
 	foreach ( $wgHelpCommonsFetchingWikis as $language => $dbs ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
@@ -185,7 +187,7 @@ $wgHooks['ArticleViewHeader'][] = function ( &$helppage, &$outputDone, &$pcache 
 					}
 
 					// check if requested page does exist
-					$apiResponse = Http::get(
+					$apiResponse = $httpRequestFactory->get(
 						$url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $dbkey
 					);
 					$apiData = unserialize( $apiResponse );
@@ -228,6 +230,7 @@ function fnHelpCommonsInsertTalkpageTab( $skin, &$content_actions ) {
 		return false;
 	}
 
+	$httpRequestFactory = \MediaWiki\MediaWikiServices::getInstance()->getHttpRequestFactory();
 	foreach ( $wgHelpCommonsFetchingWikis as $language => $dbs ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
@@ -247,7 +250,7 @@ function fnHelpCommonsInsertTalkpageTab( $skin, &$content_actions ) {
 					}
 
 					// check if requested page does exist
-					$apiResponse = Http::get(
+					$apiResponse = $httpRequestFactory->get(
 						$url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $skin->getTitle()->getDBkey()
 					);
 					$apiData = unserialize( $apiResponse );
@@ -305,6 +308,7 @@ function fnHelpCommonsInsertActionTab( $skin, &$content_actions ) {
 		return false;
 	}
 
+	$httpRequestFactory = \MediaWiki\MediaWikiServices::getInstance()->getHttpRequestFactory();
 	foreach ( $wgHelpCommonsFetchingWikis as $language => $dbs ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
@@ -324,7 +328,7 @@ function fnHelpCommonsInsertActionTab( $skin, &$content_actions ) {
 					}
 
 					// check if requested page does exist
-					$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $skin->getTitle()->getDBkey() );
+					$apiResponse = $httpRequestFactory->get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $skin->getTitle()->getDBkey() );
 					$apiData = unserialize( $apiResponse );
 
 					if ( !$apiResponse || !$apiData || !$apiData['query'] ) {
@@ -460,6 +464,7 @@ $wgHooks['SkinTemplateNavigation'][] = function ( SkinTemplate &$sktemplate, arr
 $wgHooks['getUserPermissionsErrors'][] = function ( &$title, &$user, $action, &$result ) {
 	global $wgHelpCommonsFetchingWikis, $wgDBname, $wgLanguageCode, $wgHelpCommonsEnableLocalDiscussions, $wgHelpCommonsProtection;
 
+	$httpRequestFactory = \MediaWiki\MediaWikiServices::getInstance()->getHttpRequestFactory();
 	foreach ( $wgHelpCommonsFetchingWikis as $language => $dbs ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
@@ -510,7 +515,7 @@ $wgHooks['getUserPermissionsErrors'][] = function ( &$title, &$user, $action, &$
 
 						case 'existing':
 							// check if requested page does exist
-							$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $title->getDBkey() );
+							$apiResponse = $httpRequestFactory->get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $title->getDBkey() );
 							$apiData = unserialize( $apiResponse );
 
 							if ( !$apiResponse || !$apiData || !$apiData['query'] ) {
@@ -566,6 +571,7 @@ $wgHooks['LinkBegin'][] = function ( $skin, $target, &$text, &$customAttribs, &$
 		return true;
 	}
 
+	$httpRequestFactory = \MediaWiki\MediaWikiServices::getInstance()->getHttpRequestFactory();
 	foreach ( $wgHelpCommonsFetchingWikis as $language => $dbs ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
@@ -585,7 +591,7 @@ $wgHooks['LinkBegin'][] = function ( $skin, $target, &$text, &$customAttribs, &$
 					}
 
 					// check if requested page does exist
-					$apiResponse = Http::get(
+					$apiResponse = $httpRequestFactory->get(
 						$url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $target->getDBkey()
 					);
 					$apiData = unserialize( $apiResponse );
@@ -624,6 +630,7 @@ $wgHooks['LinkBegin'][] = function ( $skin, $target, &$text, &$customAttribs, &$
 $wgHooks['TitleHelpCommonsPageIsKnown'][] = function ( $page ) {
 	global $wgHelpCommonsFetchingWikis, $wgLanguageCode, $wgDBname;
 
+	$httpRequestFactory = \MediaWiki\MediaWikiServices::getInstance()->getHttpRequestFactory();
 	foreach ( $wgHelpCommonsFetchingWikis as $language => $dbs ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
@@ -643,7 +650,7 @@ $wgHooks['TitleHelpCommonsPageIsKnown'][] = function ( $page ) {
 					}
 
 					// check if requested page does exist
-					$apiResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $page->getDBkey() );
+					$apiResponse = $httpRequestFactory->get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $page->getDBkey() );
 					$apiData = unserialize( $apiResponse );
 
 					if ( !$apiResponse || !$apiData || !$apiData['query'] ) {
@@ -673,6 +680,7 @@ $wgHooks['TitleHelpCommonsTalkIsKnown'][] = function ( $talk ) {
 		return false;
 	}
 
+	$httpRequestFactory = \MediaWiki\MediaWikiServices::getInstance()->getHttpRequestFactory();
 	foreach ( $wgHelpCommonsFetchingWikis as $language => $dbs ) {
 		foreach ( $dbs as $db => $urls ) {
 			foreach ( $urls as $url => $helpWikiPrefixes ) {
@@ -692,7 +700,7 @@ $wgHooks['TitleHelpCommonsTalkIsKnown'][] = function ( $talk ) {
 					}
 
 					// check if requested page does exist
-					$apiPageResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $talk->getDBkey() );
+					$apiPageResponse = $httpRequestFactory->get( $url . $prefix . '/api.php?format=php&action=query&titles=Help:' . $talk->getDBkey() );
 					$apiPageData = unserialize( $apiPageResponse );
 
 					if ( !$apiPageResponse || !$apiPageData || !$apiPageData['query'] ) {
@@ -700,7 +708,7 @@ $wgHooks['TitleHelpCommonsTalkIsKnown'][] = function ( $talk ) {
 					}
 
 					// check if requested talkpage does exist
-					$apiTalkResponse = Http::get( $url . $prefix . '/api.php?format=php&action=query&titles=Help_talk:' . $talk->getDBkey() );
+					$apiTalkResponse = $httpRequestFactory->get( $url . $prefix . '/api.php?format=php&action=query&titles=Help_talk:' . $talk->getDBkey() );
 					$apiTalkData = unserialize( $apiTalkResponse );
 
 					if ( !$apiTalkResponse || !$apiTalkData || !$apiTalkData['query'] ) {
