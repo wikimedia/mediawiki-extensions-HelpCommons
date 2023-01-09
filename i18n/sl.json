@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"helpcommons-desc": "Pridobi strani s pomočjo iz zunanjega vikija za pomoč in jih vključi v ta viki",
+	"helpcommons-create": "Ustvari v vikiju pomoči",
+	"helpcommons-edit": "Uredi v vikiju pomoči",
+	"helpcommons-discussion": "Pogovor v vikiju pomoči",
+	"helpcommons-info": "Ta vsebina je pridobljena iz $1 . Glejte $2."
+}
