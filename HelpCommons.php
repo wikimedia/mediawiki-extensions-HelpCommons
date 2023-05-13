@@ -223,7 +223,7 @@ function fnHelpCommonsInsertTalkpageTab( $skin, &$content_actions ) {
 	global $wgHelpCommonsEnableLocalDiscussions, $wgHelpCommonsProtection, $wgHelpCommonsFetchingWikis,
 		$wgLanguageCode, $wgDBname;
 
-	if (
+	if ( !$skin->getTitle()->canExist() ||
 		( $skin->getTitle()->getNamespace() != NS_HELP && $skin->getTitle()->getNamespace() != NS_HELP_TALK ) ||
 		!$wgHelpCommonsEnableLocalDiscussions || $wgHelpCommonsProtection == 'all' || $wgHelpCommonsProtection == 'existing'
 	) {
@@ -304,7 +304,7 @@ function fnHelpCommonsInsertTalkpageTab( $skin, &$content_actions ) {
 function fnHelpCommonsInsertActionTab( $skin, &$content_actions ) {
 	global $wgHelpCommonsFetchingWikis, $wgLanguageCode, $wgDBname, $wgVectorUseIconWatch;
 
-	if ( $skin->getTitle()->getNamespace() != NS_HELP ) {
+	if ( !$skin->getTitle()->canExist() || $skin->getTitle()->getNamespace() != NS_HELP ) {
 		return false;
 	}
 
@@ -446,7 +446,7 @@ function fnHelpCommonsInsertActionTab( $skin, &$content_actions ) {
  * @param $links array
  * @return bool
  */
-$wgHooks['SkinTemplateNavigation'][] = function ( SkinTemplate &$sktemplate, array &$links ) {
+$wgHooks['SkinTemplateNavigation::Universal'][] = function ( SkinTemplate &$sktemplate, array &$links ) {
 	// the old '$content_actions' array is thankfully just a
 	// sub-array of this one
 	fnHelpCommonsInsertTalkpageTab( $sktemplate, $links['namespaces'] );
