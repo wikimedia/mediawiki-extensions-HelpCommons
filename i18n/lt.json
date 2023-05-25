@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"helpcommons-desc": "Paima pagalbos puslapius iš išorinio pagalbos viki ir įtraukia juos į šį vikį",
+	"helpcommons-create": "Sukurti pagalbos viki",
+	"helpcommons-edit": "Redaguoti pagalbos viki",
+	"helpcommons-discussion": "Aptarti tai pagalbos viki",
+	"helpcommons-info": "Šis turinys paimtas iš $1. Žiūrėkite $2."
+}
