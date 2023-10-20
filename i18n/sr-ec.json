@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Kizule",
+			"Milicevic01",
 			"Zenfiric",
 			"Милан Јелисавчић"
 		]
 	},
 	"helpcommons-desc": "Прибавља странице за помоћ са спољашњег викија за помоћ и укључује их у овај вики",
 	"helpcommons-create": "Направи на Викију за помоћ",
-	"helpcommons-edit": "Измени на Викију за помоћ",
+	"helpcommons-edit": "Уреди на Викију за помоћ",
 	"helpcommons-discussion": "Продискутујте ово на Викију за помоћ",
 	"helpcommons-info": "Овај садржај је добављен са $1. Погледајте $2."
 }
