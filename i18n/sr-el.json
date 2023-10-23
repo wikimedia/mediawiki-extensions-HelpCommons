@@ -2,5 +2,9 @@
 	"@metadata": {
 		"authors": []
 	},
+	"helpcommons-desc": "Pribavlja stranice za pomoć sa spoljašnjeg vikija za pomoć i uključuje ih u ovaj viki",
+	"helpcommons-create": "Napravi na Vikiju za pomoć",
+	"helpcommons-edit": "Izmeni na Vikiju za pomoć",
+	"helpcommons-discussion": "Prodiskutujte ovo na Vikiju za pomoć",
 	"helpcommons-info": "Ovaj sadržaj je dobavljen sa $1. Pogledajte $2."
 }
