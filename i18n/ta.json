@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Fahimrazick",
 			"Karthi.dr",
 			"Shanmugamp7"
 		]
 	},
-	"helpcommons-create": "உதவி விக்கியில் உருவாக்கவும்",
+	"helpcommons-create": "உதவி விக்கியில் ஆக்கு",
 	"helpcommons-edit": "உதவி விக்கியில் தொகுக்க",
 	"helpcommons-discussion": "உதவி விக்கியில் இதை விவாதிக்க",
 	"helpcommons-info": "இந்த உள்ளடக்கம்  $1 இல் இருந்து பெறப்பட்டது.  $2 ஐப் பார்க்கவும்."
