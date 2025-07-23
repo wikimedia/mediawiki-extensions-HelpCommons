@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"JeffreyKim"
+		]
+	},
+	"helpcommons-desc": "喺外部幫助 wiki 入面攞到幫助頁面，然後將佢哋加入呢個 wiki",
+	"helpcommons-create": "喺說明維基上面建立",
+	"helpcommons-edit": "喺幫助維基上面編輯",
+	"helpcommons-discussion": "喺幫助維基討論呢個問題",
+	"helpcommons-info": "呢個內容由 $1 起。睇 $2。"
+}
