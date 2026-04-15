@@ -449,7 +449,11 @@ function fnHelpCommonsInsertActionTab( $skin, &$content_actions ) {
 $wgHooks['SkinTemplateNavigation::Universal'][] = function ( SkinTemplate &$sktemplate, array &$links ) {
 	// the old '$content_actions' array is thankfully just a
 	// sub-array of this one
-	fnHelpCommonsInsertTalkpageTab( $sktemplate, $links['namespaces'] );
+	$nsKey = $sktemplate->supportsMenu( 'namespaces' ) ? 'namespaces' : 'associated-pages';
+	if ( !isset( $links[$nsKey] ) ) {
+		$links[$nsKey] = [];
+	}
+	fnHelpCommonsInsertTalkpageTab( $sktemplate, $links[$nsKey] );
 	fnHelpCommonsInsertActionTab( $sktemplate, $links['views'] );
 	return true;
 };
