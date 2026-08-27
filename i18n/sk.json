@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"helpcommons-desc": "Načítava stránky pomocníka z externej wiki s pomocníkom a vkladá ich do tejto wiki",
+	"helpcommons-create": "Vytvoriť na wiki s pomocníkom",
+	"helpcommons-edit": "Upraviť na wiki s pomocníkom",
+	"helpcommons-discussion": "Diskutovať o tom na wiki s pomocníkom",
+	"helpcommons-info": "Tento obsah je načítaný z $1. Pozri $2."
+}
